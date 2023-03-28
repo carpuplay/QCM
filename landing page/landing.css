@@ -1,5 +1,6 @@
 body {
     font-family: Kanit;
+    background-color: rgb(5, 5, 5);
 }
 
 html {
@@ -54,3 +55,6 @@ body {
     padding: 0 1vw 1vw 1vw;
     display: inline-block;
 }
+
+
+
