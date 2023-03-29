@@ -7,19 +7,45 @@
 <link rel='stylesheet' href='https://unicons.iconscout.com/release/v2.1.9/css/unicons.css'><link rel="stylesheet" href="./login.css">  
 </head>
 
-<header>
-	<div id="return-home">Menu</div>
+<!-- partial:landing.partial.html -->
+<nav class="full">
+	<div class="underline"></div>
+	<div class="underline"></div>
+	<div class="underline"></div>
+	<a onClick="ul(0)" id="menu-1">Home</a><a onClick="ul(1)" id="menu-2">Login</a><a onClick="ul(2)" id="menu-3" >Qui somme nous?</a><a onClick="ul(3)" id="menu-4">Community</a><a onClick="ul(4)" id="menu-5">Channels</a>
+	
 	<script type="text/javascript">
-		document.getElementById("return-home").onclick = function () {
-			location.href = "../landing-page/landing.html";
-		};
+		  document.getElementById("menu-1").onclick = function () {
+			  location.href = "../landing-page/landing.html";
+		  };
+	  </script>
+  
+	<script type="text/javascript">
+		  document.getElementById("menu-2").onclick = function () {
+			  location.href = "../login/login.html";
+		  };
+	  </script>
+  
+	<script type="text/javascript">
+	  document.getElementById("menu-3").onclick = function () {
+		location.href = "../login/login.html";
+	  };
 	</script>
-</header>
-
-
+  
+	<script type="text/javascript">
+	  document.getElementById("menu-4").onclick = function () {
+		location.href = "../login/login.html";
+	  };
+	</script>
+  
+	<script type="text/javascript">
+	  document.getElementById("menu-5").onclick = function () {
+		location.href = "../login/login.html";
+	  };
+	</script>
+</nav>
+  
 <body>
-<!-- partial:index.partial.html -->
-
 	<div class="section">
 		<div class="container">
 			<div class="row full-height justify-content-center">
