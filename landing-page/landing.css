@@ -1,0 +1,250 @@
+:root {
+  --underline-height: .5em;
+  --transition-duration: .5s;
+}
+.slider-thumb::before {     /*la bule orange   - à eliminer pour la version mobile*/
+    position: absolute;
+    content: "";
+    left: 50%;
+    top: 30%;
+    width: 100%;
+    height: 100%;
+    background: rgb(255, 166, 0);
+    border-radius: 62% 47% 82% 35% / 45% 45% 80% 66%;
+    will-change: border-radius, transform, opacity;
+    animation: sliderShape 5s linear infinite;
+    display: block;
+    z-index: -1;
+    -webkit-animation: sliderShape 5s linear infinite;
+  }
+  @keyframes sliderShape{
+    0%,100%{
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+      transform: translate3d(0,0,0) rotateZ(0.01deg);
+    }
+    34%{
+        border-radius: 70% 30% 46% 54% / 30% 29% 71% 70%;
+      transform:  translate3d(0,5px,0) rotateZ(0.01deg);
+    }
+    50%{
+      transform: translate3d(0,0,0) rotateZ(0.01deg);
+    }
+    67%{
+      border-radius: 100% 60% 60% 100% / 100% 100% 60% 60% ;
+      transform: translate3d(0,-3px,0) rotateZ(0.01deg);
+    }
+}
+
+body {
+    font-family: Termina, sans-serif;
+    color: #f8f8f8;
+    background: #000000;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+
+.main-text{        /* Le texte du centre de la landing page - a modifier pour la version mobile*/
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-family: Termina, sans-serif;
+    font-weight: bold;
+    font-size: 300vw;
+    letter-spacing: 0.2vw;
+    color: #f8f8f8;
+}
+
+h1 {
+    font-size: 4.1vw;
+}
+.typewriter h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid rgb(0, 0, 0); /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    letter-spacing: .15em; /* Adjust as needed */
+    animation: 
+      typing 3.5s steps(30, end),
+      blink-caret .75s step-end infinite;
+  }
+  
+  /* The typing effect */
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 15em }
+  }
+  
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: rgb(99, 99, 99); }
+  }
+
+.hub {
+    display: block;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 9vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    }
+    
+.hub span:nth-child(2) {
+    background: #FF9900;
+    color: #ffffff;
+    border-radius: 1vw;
+    padding: 0 1vw 1vw 1vw;
+    display: inline-block;
+    }
+
+.ico {
+    display: block;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 9vw;
+    content:"QCM";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    }
+
+.ico span:nth-child(2){
+    background: #FF9900;
+    color: #000000;
+    content:"hub";
+    border-radius: 1vw;
+    padding: 0 1vw 1vw 1vw;
+    display: inline-block;
+}
+
+/*main buttons */
+button.login-btn{
+    padding: 20px 40px;
+    background-color: #050801;
+    color: orange;
+    font-weight: bold;
+    font-family: "Termina", sans-serif;
+    border: none;
+    border-radius: 5px;
+    letter-spacing: 0.2vw;
+    font-size: 12px;
+    overflow: hidden;
+    transition: 0.5s;
+    cursor: pointer;
+  }
+  
+  button.login-btn:hover{
+      background: orange;
+      color: #050801;
+      box-shadow: 0 0 5px orange,
+                  0 0 25px orange,
+                  0 0 50px orange,
+                  0 0 200px orange;
+       
+}
+
+button.learn-more-btn{             
+    padding: 20px 40px;
+    background-color: #050801;
+    color: whitesmoke;
+    font-weight: bold;
+    font-family: "Termina", sans-serif;
+    border: none;
+    border-radius: 5px;
+    letter-spacing: 0.2vw;
+    font-size: 12px;
+    overflow: hidden;
+    transition: 0.5s;
+    cursor: pointer;
+    }
+    button.learn-more-btn:hover{
+        background: whitesmoke;
+        color: #050801;
+        box-shadow: 0 0 5px whitesmoke,
+                  0 0 25px whitesmoke,
+                  0 0 50px whitesmoke,
+                  0 0 200px whitesmoke;
+}
+
+.login-btn {                  /*position des boutons */
+    position: absolute;
+    top: 65vh;
+    left: 40vw;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    align-items: center;
+}
+.learn-more-btn {           /*position des boutons */
+    position: absolute;
+    top: 65vh;
+    left: 60vw;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    align-items: center;
+}
+
+/* Header shit*/
+nav {
+  position: relative;
+  white-space: nowrap;
+  background: white;
+  padding: var(--underline-height) 0;
+  margin: 0vh 0;
+  box-shadow: 0 1em 2em rgba(0, 0, 0, 0.05);
+}
+
+.underline {
+  display: block;
+  position: absolute;
+  z-index: 0;
+  bottom: 0;
+  left: 0;
+  height: var(--underline-height);
+  width: 20%;
+  background: black;
+  pointer-events: none;
+  mix-blend-mode:multiply;
+  transition: transform var(--transition-duration) ease-in-out;
+}
+.underline:nth-child(1) {
+  background: rgb(0, 26, 255);
+  transition: calc(var(--transition-duration) * .8);
+}
+.underline:nth-child(2) {
+  background: cyan;
+  transition: calc(var(--transition-duration) * 1.2);
+}
+.underline:nth-child(3) {
+  background: magenta;
+}
+
+a {
+  display:inline-block;
+  z-index: 10;
+  width: 20%;
+  padding: 1em 0;
+  text-align: center;
+  cursor: pointer;
+}
+
+nav.full {
+  font-weight: bold;
+  background: #000000;
+  color: white;
+}
+nav.full .underline {
+  height: 100%;
+  background: gold;
+}
+
