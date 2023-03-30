@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Questions Hub - Le site de révisions</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap"><link rel="stylesheet" href="./landing.css">
+  <link rel="icon" type="image/x-icon" href="../Assets/forum_FILL0_wght400_GRAD0_opsz48.svg">
+</head>
+  <!-- partial:landing.partial.html -->
+<nav class="full">
+  <div class="underline"></div>
+  <div class="underline"></div>
+  <div class="underline"></div>
+  <a onClick="ul(0)" id="menu-1">Home</a><a onClick="ul(1)" id="menu-2">Login</a><a onClick="ul(2)" id="menu-3" >Qui somme nous?</a><a onClick="ul(3)" id="menu-4">Community</a><a onClick="ul(4)" id="menu-5">Channels</a>
+  
+  <script type="text/javascript">
+		document.getElementById("menu-1").onclick = function () {
+			location.href = "../landing-page/landing.html";
+		};
+	</script>
+
+  <script type="text/javascript">
+		document.getElementById("menu-2").onclick = function () {
+			location.href = "../php-shit/index.html";
+		};
+	</script>
+
+  <script type="text/javascript">
+    document.getElementById("menu-3").onclick = function () {
+      location.href = "../login/login.html";
+    };
+  </script>
+
+  <script type="text/javascript">
+    document.getElementById("menu-4").onclick = function () {
+      location.href = "../login/login.html";
+    };
+  </script>
+
+  <script type="text/javascript">
+    document.getElementById("menu-5").onclick = function () {
+      location.href = "../login/login.html";
+    };
+  </script>
+</nav>
+
+
+<body>
+  <div class="typewriter">
+    <h1 >Révise comme les Pro's</h1> 
+    <button id="se-connecter-btn" class="login-btn">Se connecter</button> 
+    <script type="text/javascript">
+      document.getElementById("se-connecter-btn").onclick = function () {
+          location.href = "../login/login.html";
+      };
+    </script>
+    <button id="en-savoir-plus" class="learn-more-btn">En savoir plus</button>
+    <script type="text/javascript">
+      document.getElementById("en-savoir-plus").onclick = function () {
+          location.href = "#";
+      };
+    </script>
+  </div>
+  <section>       <!-- images carrousel -->
+    <div class="container-pt-1">
+        <div class="carousel">
+            <input type="radio" name="slides" checked="checked" id="slide-1">
+            <input type="radio" name="slides" id="slide-2">
+            <input type="radio" name="slides" id="slide-3">
+            <input type="radio" name="slides" id="slide-4">
+            <input type="radio" name="slides" id="slide-5">
+            <input type="radio" name="slides" id="slide-6">
+            <ul class="carousel__slides">
+                <li class="carousel__slide">
+                    <figure>
+                        <div>
+                            <img src="https://picsum.photos/id/1041/800/450" alt="">
+                        </div>
+                        <figcaption>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            <span class="credit">Photo: Tim Marshall</span>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="carousel__slide">
+                    <figure>
+                        <div>
+                            <img src="https://picsum.photos/id/1043/800/450" alt="">
+                        </div>
+                        <figcaption>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            <span class="credit">Photo: Christian Joudrey</span>                            
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="carousel__slide">
+                    <figure>
+                        <div>
+                            <img src="https://picsum.photos/id/1044/800/450" alt="">
+                        </div>
+                        <figcaption>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            <span class="credit">Photo: Steve Carter</span>                            
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="carousel__slide">
+                    <figure>
+                        <div>
+                            <img src="https://picsum.photos/id/1045/800/450" alt="">
+                        </div>
+                        <figcaption>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            <span class="credit">Photo: Aleksandra Boguslawska</span>                            
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="carousel__slide">
+                    <figure>
+                        <div>
+                            <img src="https://picsum.photos/id/1049/800/450" alt="">
+                        </div>
+                        <figcaption>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            <span class="credit">Photo: Rosan Harmens</span>                            
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="carousel__slide">
+                    <figure>
+                        <div>
+                            <img src="https://picsum.photos/id/1052/800/450" alt="">
+                        </div>
+                        <figcaption>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            <span class="credit">Photo: Annie Spratt</span>                            
+                        </figcaption>
+                    </figure>
+                </li>
+            </ul>    
+            <ul class="carousel__thumbnails">
+                <li>
+                    <label for="slide-1"><img src="https://picsum.photos/id/1041/150/150" alt=""></label>
+                </li>
+                <li>
+                    <label for="slide-2"><img src="https://picsum.photos/id/1043/150/150" alt=""></label>
+                </li>
+                <li>
+                    <label for="slide-3"><img src="https://picsum.photos/id/1044/150/150" alt=""></label>
+                </li>
+                <li>
+                    <label for="slide-4"><img src="https://picsum.photos/id/1045/150/150" alt=""></label>
+                </li>
+                <li>
+                    <label for="slide-5"><img src="https://picsum.photos/id/1049/150/150" alt=""></label>
+                </li>
+                <li>
+                    <label for="slide-6"><img src="https://picsum.photos/id/1052/150/150" alt=""></label>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+  <!-- partial -->
+  <script src="./landing.js"></script>
+  <div class="slider-thumb"></div>
+
+
+
+</body>
