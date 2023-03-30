@@ -36,7 +36,7 @@
 }
 
 body {
-    font-family: Termina, sans-serif;
+    font-family: 'Termina', sans-serif;
     color: #f8f8f8;
     background: #000000;
     overflow-x: hidden;
@@ -204,36 +204,12 @@ nav {
   box-shadow: 0 1em 2em rgba(0, 0, 0, 0.05);
 }
 
-.underline {
-  display: block;
-  position: absolute;
-  z-index: 0;
-  bottom: 0;
-  left: 0;
-  height: var(--underline-height);
-  width: 20%;
-  background: black;
-  pointer-events: none;
-  mix-blend-mode:multiply;
-  transition: transform var(--transition-duration) ease-in-out;
-}
-.underline:nth-child(1) {
-  background: rgb(0, 26, 255);
-  transition: calc(var(--transition-duration) * .8);
-}
-.underline:nth-child(2) {
-  background: cyan;
-  transition: calc(var(--transition-duration) * 1.2);
-}
-.underline:nth-child(3) {
-  background: magenta;
-}
 
 a {
   display:inline-block;
   z-index: 10;
   width: 20%;
-  padding: 1em 0;
+  padding: 1em 0em;
   text-align: center;
   cursor: pointer;
 }
