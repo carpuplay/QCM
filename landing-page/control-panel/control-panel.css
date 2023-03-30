@@ -5,10 +5,6 @@ html, body {
   padding: 0;
 }
 
-.hidden {
-  display: none;
-}
-
 body {
   display: flex;
   justify-content: center;
@@ -32,7 +28,7 @@ svg {
 .blobs .blob-center {
   transform-style: preserve-3d;
   position: absolute;
-  background: orange;
+  background: #FFF200;
   top: 50%;
   left: 50%;
   width: 30px;
@@ -42,12 +38,12 @@ svg {
   -webkit-animation: blob-grow linear 3.4s infinite;
           animation: blob-grow linear 3.4s infinite;
   border-radius: 50%;
-  box-shadow: 0 -10px 40px -5px orange;
+  box-shadow: 0 -10px 40px -5px #FFF200;
 }
 
 .blob {
   position: absolute;
-  background: orange;
+  background: #FFF200;
   top: 50%;
   left: 50%;
   width: 30px;
