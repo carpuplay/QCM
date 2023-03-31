@@ -8,11 +8,11 @@ if ( isset($_POST) && isset($_POST["logpass"]) && isset($_POST["logemail"]) )
 include('conf.php');
 
 //On établit la connexion
-$conn = new PDO("mysql:host=$servername;dbname=users", $username, $password);
+$conn = new PDO("mysql:host=$servername;dbname=qcm", $username, $password);
 //var_dump($conn); // sert à verifier que l'on est connecté
 
 
-$sql="SELECT * FROM `admin` where adresse_mail='".$_POST["logemail"]."' and mot_de_passe='".md5($_POST["logpass"])."';";
+$sql="SELECT * FROM `users` where adresse_mail='".$_POST["logemail"]."' and password='".md5($_POST["logpass"])."';";
 //print($sql);
 //print("<br />");
 $p=$conn->prepare($sql);
@@ -31,7 +31,7 @@ if ($reponse !=NULL)
 
 $_SESSION["identifiant"]=$reponse[0]["identifiant"];
 
-$_SESSION["droits"]=$reponse[0]["droits"];
+$_SESSION["rights"]=$reponse[0]["rights"];
 
 }
 else
@@ -48,5 +48,6 @@ else
 //hacer parte de sign up intentar no cagarla pls
 
 ?>
+
 
 
