@@ -49,7 +49,7 @@ nav.full .underline {
   top: 20%;
   width: 73%;
   height: 85%;
-  background: rgb(0, 110, 255);
+  background: orange;
   border-radius: 62% 47% 82% 35% / 45% 45% 80% 66%;
   will-change: border-radius, transform, opacity;
   animation: sliderShape 5s linear infinite;

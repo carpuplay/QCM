@@ -257,7 +257,7 @@ nav.full .underline {
   font-weight: 400;
   color: white;
   position: absolute;
-  top: 25em ;
+  top: 60vh ;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;

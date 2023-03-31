@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>QcmHub - Login</title>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'>
-<link rel='stylesheet' href='https://unicons.iconscout.com/release/v2.1.9/css/unicons.css'><link rel="stylesheet" href="../login/login.css">  
+<link rel='stylesheet' href='https://unicons.iconscout.com/release/v2.1.9/css/unicons.css'><link rel="stylesheet" href="./login.css">  
 </head>
 
 <!-- partial:landing.partial.html -->
@@ -15,7 +15,7 @@
 	<a class="header-cl" onClick="ul(0)" id="menu-1">Home</a><a class="header-cl" onClick="ul(1)" id="menu-2">Login</a><a class="header-cl" onClick="ul(2)" id="menu-3" >Qui somme nous?</a><a class="header-cl" onClick="ul(3)" id="menu-4">Community</a><a class="header-cl" onClick="ul(4)" id="menu-5">Channels</a>
 	<script type="text/javascript">
 		  document.getElementById("menu-1").onclick = function () {
-			  location.href = "../landing-page/landing.html";
+			  location.href = "../../landing-eleve/landing.html";
 		  };
 	  </script>
   
@@ -93,9 +93,8 @@
 														<input type="password" name="logpass" class="form-style" placeholder="Mot de passe" id="logpass" autocomplete="off">
 														<i class="input-icon uil uil-lock-alt"></i>
 													</div>
-													<input type="submit" value="Créer un compte">
+													<input type="submit" class="btn mt-4" value="Créer un compte" href="../spe-select/" >
 												</form>
-											<a href="../control-panel/control-panel.html" class="btn mt-4">Créer</a>
 				      					</div>
 			      					</div>
 			      				</div>
@@ -108,7 +107,7 @@
 	</div>
 <!-- partial -->
 	<div class="slider-thumb"></div>
-  	<script  src="../login/login.js"></script>
+  	<script  src="./login.js"></script>
 
 </body>
 </html>
