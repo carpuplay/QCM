@@ -7,45 +7,46 @@
   <link rel="icon" type="image/x-icon" href="../../Assets/forum_FILL0_wght400_GRAD0_opsz48.svg">
 </head>
   <!-- partial:landing.partial.html -->
-<header>
   <nav class="full">
     <div class="underline"></div>
     <div class="underline"></div>
     <div class="underline"></div>
-    <a onClick="ul(0)" id="menu-1">Home</a><a onClick="ul(1)" id="menu-2">Login</a><a onClick="ul(2)" id="menu-3" >Qui somme nous?</a><a onClick="ul(3)" id="menu-4">Community</a><a onClick="ul(4)" id="menu-5">Channels</a>
+    <a class="header-cl" onClick="ul(0)" id="menu-1">Home</a>
+    <a class="header-cl" onClick="ul(1)" id="menu-2">FAQ</a>
+    <a class="header-cl" onClick="ul(2)" id="menu-3" >Qui somme nous?</a>
+    <a class="header-cl" onClick="ul(3)" id="menu-4">Orientation</a>
+    <a class="header-cl" onClick="ul(4)" id="menu-5">Espace Prof</a>
     
     <script type="text/javascript">
-      document.getElementById("menu-1").onclick = function () {
-        location.href = "./landing.html";
-      };
-    </script>
-  
+        document.getElementById("menu-1").onclick = function () {
+          location.href = "landing.html";
+        };
+      </script>
+    
     <script type="text/javascript">
-      document.getElementById("menu-2").onclick = function () {
-        location.href = "../../login/login-eleve/login.php";
-      };
-    </script>
-  
+        document.getElementById("menu-2").onclick = function () {
+          location.href = "./index.html";
+        };
+      </script>
+    
     <script type="text/javascript">
       document.getElementById("menu-3").onclick = function () {
-        location.href = "../login/login.html";
+      location.href = "#";
       };
     </script>
-  
+    
     <script type="text/javascript">
       document.getElementById("menu-4").onclick = function () {
-        location.href = "../login/login.html";
+      location.href = "#";
       };
     </script>
-  
+    
     <script type="text/javascript">
       document.getElementById("menu-5").onclick = function () {
-        location.href = "../login/login.html";
+      location.href = "../../landing-page/landing-prof/landing.html";
       };
     </script>
   </nav>
-</header>
-
 
 <body>
   <div class="typewriter">
