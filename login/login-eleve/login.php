@@ -24,34 +24,38 @@ session_unset();
 	<div class="underline"></div>
 	<div class="underline"></div>
 	<div class="underline"></div>
-	<a class="header-cl" onClick="ul(0)" id="menu-1">Home</a><a class="header-cl" onClick="ul(1)" id="menu-2">Login</a><a class="header-cl" onClick="ul(2)" id="menu-3" >Qui somme nous?</a><a class="header-cl" onClick="ul(3)" id="menu-4">Community</a><a class="header-cl" onClick="ul(4)" id="menu-5">Channels</a>
+	<a class="header-cl" onClick="ul(0)" id="menu-1">Home</a>
+  <a class="header-cl" onClick="ul(1)" id="menu-2">FAQ</a>
+  <a class="header-cl" onClick="ul(2)" id="menu-3" >Qui sommes nous?</a>
+  <a class="header-cl" onClick="ul(3)" id="menu-4">Orientation</a>
+  <a class="header-cl" onClick="ul(4)" id="menu-5">Espace Prof</a>
 	<script type="text/javascript">
 		  document.getElementById("menu-1").onclick = function () {
-			  location.href = "../../landing-page/landing-eleve/landing.html";
+			location.href = "../../index.html";
 		  };
 	  </script>
   
 	<script type="text/javascript">
 		  document.getElementById("menu-2").onclick = function () {
-			  location.href = "./index.html";
+			location.href = "#";
 		  };
 	  </script>
   
 	<script type="text/javascript">
 	  document.getElementById("menu-3").onclick = function () {
-		location.href = "../login/login.html";
+		location.href = "#";
 	  };
 	</script>
   
 	<script type="text/javascript">
 	  document.getElementById("menu-4").onclick = function () {
-		location.href = "../login/login.html";
+		location.href = "#";
 	  };
 	</script>
   
 	<script type="text/javascript">
 	  document.getElementById("menu-5").onclick = function () {
-		location.href = "../login/login.html";
+		location.href = "../../landing-page/landing-prof/landing.html";
 	  };
 	</script>
 </nav>
@@ -71,7 +75,7 @@ session_unset();
 									<div class="center-wrap">
 										<div class="section text-center">
 											<h4 class="mb-4 pb-3">Se Connecter</h4>
-                                            <form action="verification.php" method="POST">
+                                            <form action="../../php-shit/php-files/verification.php" method="POST">
                                                 <div class="form-group">
                                                     
                                                         <input type="email" name="logemail" class="form-style" placeholder="Email" id="logemail" autocomplete="on">
@@ -92,7 +96,7 @@ session_unset();
 										<div class="section text-center">
 											<h4 class="mb-4 pb-3">Créer un compte</h4>
 											<div class="form-group">
-												<form action="sign_up.php" method="POST">
+												<form action="../../php-shit/php-files/sign_up.php" method="POST">
 													<div class="form-group">
 														<input type="text" name="logname" class="form-style" placeholder="Identifiant" id="logname" autocomplete="off">
 														<i class="input-icon uil uil-user"></i>
