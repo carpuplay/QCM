@@ -221,3 +221,33 @@ svg {
     transform: scale(0) translate(-50%, -50%);
   }
 }
+/* Header */
+
+nav {
+  position: relative;
+  white-space: nowrap;
+  background: white;
+  padding: var(--underline-height) 0;
+  margin: 0vh 0;
+  box-shadow: 0 1em 2em rgba(0, 0, 0, 0.05);
+}
+
+
+a.header-cl {
+  display:inline-block;
+  z-index: 10;
+  width: 20%;
+  padding: 1em 0em;
+  text-align: center;
+  cursor: pointer;
+}
+
+nav.full {
+  font-weight: bold;
+  background: #000000;
+  color: white;
+}
+nav.full .underline {
+  height: 100%;
+  background: gold;
+}

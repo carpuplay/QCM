@@ -78,11 +78,11 @@ session_unset();
                                             <form action="../../php-shit/php-files/verification.php" method="POST">
                                                 <div class="form-group">
                                                     
-                                                        <input type="email" name="logemail" class="form-style" placeholder="Email" id="logemail" autocomplete="on">
+                                                        <input type="email" name="email" class="form-style" placeholder="Email"  autocomplete="on">
                                                         <i class="input-icon uil uil-at"></i>
                                                 </div>	
                                                 <div class="form-group mt-2">
-                                                    <input type="password" name="logpass" class="form-style" placeholder="Mot de passe" id="logpass" autocomplete="on">
+                                                    <input type="password" name="password" class="form-style" placeholder="Mot de passe"  autocomplete="on">
                                                     <i class="input-icon uil uil-lock-alt"></i>
                                                 </div>
                                                 <input type="submit" class="btn mt-4" value="Se connecter">
@@ -96,20 +96,22 @@ session_unset();
 										<div class="section text-center">
 											<h4 class="mb-4 pb-3">Créer un compte</h4>
 											<div class="form-group">
-												<form action="../../php-shit/php-files/sign_up.php" method="POST">
+												<form action="../../php-shit/php-files/registration.php" method="POST">
 													<div class="form-group">
-														<input type="text" name="logname" class="form-style" placeholder="Identifiant" id="logname" autocomplete="off">
+														<input type="text" name="username" class="form-style" placeholder="Identifiant"  autocomplete="off" 
+														<?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>>
 														<i class="input-icon uil uil-user"></i>
 													</div>	
 													<div class="form-group mt-2">
-														<input type="email" name="logemail" class="form-style" placeholder="Email" id="logemail" autocomplete="off">
+														<input type="email" name="email" class="form-style" placeholder="Email"  autocomplete="on">
 														<i class="input-icon uil uil-at"></i>
 													</div>	
 													<div class="form-group mt-2">
-														<input type="password" name="logpass" class="form-style" placeholder="Mot de passe" id="logpass" autocomplete="off">
+														<input type="password" name="password" class="form-style" placeholder="Mot de passe"  autocomplete="on" 
+														<?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?> >
 														<i class="input-icon uil uil-lock-alt"></i>
 													</div>
-													<input type="submit" class="btn mt-4" value="Créer un compte" href="../spe-select/" >
+													<input type="submit" class="btn mt-4" value="Créer un compte" >
 												</form>
 				      					</div>
 			      					</div>
