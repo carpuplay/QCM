@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
+
+body{
+	font-family: 'Termina', sans-serif;
+	min-height: 100vh;
+	color: #ffffff;
+	background-color: #000000;
+	overflow-x: hidden;
+}
+
+nav {
+    position: relative;
+    white-space: nowrap;
+    background: white;
+    padding: var(--underline-height) 0;
+    margin: 0vh 0;
+    box-shadow: 0 1em 2em rgba(0, 0, 0, 0.05);
+  }
+  
+  
+  a.header-cl {
+    display:inline-block;
+    z-index: 10;
+    width: 20%;
+    padding: 1em 0em;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  nav.full {
+    font-weight: bold;
+    background: #000000;
+    color: white;
+  }
+  nav.full .underline {
+    height: 100%;
+    background: gold;
+  }
