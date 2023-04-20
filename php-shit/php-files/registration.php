@@ -1,6 +1,6 @@
 <?php
 session_start();
-$_SESSION['email'] = $email; // assuming $email is the user's email address  
+ // assuming $email is the user's email address  
 // Include config file
 require_once "config.php";
 
@@ -106,6 +106,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
+                $_SESSION['email'] = $email;
                 // Redirect to login page
                 header("location: ../../login/spe-select/spe-select.php");
             } else{

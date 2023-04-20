@@ -7,16 +7,17 @@
   
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
 <link rel="stylesheet" href="./spe-select.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </head>
 <body>
 <!-- partial:index.partial.html -->
-
+<form method="POST" action="../../php-shit/php-files/speSelector.php">
 	<fieldset class="checkbox-group">
 		<legend class="checkbox-group-legend">Choisi tes Spécialités</legend>
 		<div class="checkbox">
 			<label class="checkbox-wrapper">
-				<input type="checkbox" name="spe-select" class="checkbox-input" value="ses" id="ses-checkbox" />
+				<input type="checkbox" name="spe" class="checkbox-input" value="ses" id="ses-checkbox" />
 				<span class="checkbox-tile">
 					<span class="checkbox-icon">
 						<!-- -->
@@ -27,7 +28,7 @@
 		</div>
 		<div class="checkbox">
 			<label class="checkbox-wrapper">
-				<input type="checkbox" class="checkbox-input" name="spe-select" value="maths" id="maths-ses"/>
+				<input type="checkbox" class="checkbox-input" name="spe" value="maths" id="maths-ses"/>
 				<span class="checkbox-tile">
 					<span class="checkbox-icon">
 						<!-- -->
@@ -38,7 +39,7 @@
 		</div>
 		<div class="checkbox">
 			<label class="checkbox-wrapper">
-				<input type="checkbox" class="checkbox-input" />
+				<input type="checkbox" class="checkbox-input" name='spe' value='physique'/>
 				<span class="checkbox-tile">
 					<span class="checkbox-icon">
 						<!-- -->
@@ -103,15 +104,14 @@
 			</label>  
 		</div>
 	</fieldset>
-</form>
-<div class="submit">           <!-- Redirect to control panel -->
-	<button id="button-submit" class="submit-btn">Suivant</button>
-    <script type="text/javascript">
-      document.getElementById("button-submit").onclick = function () {
-          location.href = "../../content/loader/loading.html";
-      };
-    </script>
-</div>
+	<div class="submit">
+		<input type='submit' id="button-submit" class="submit-btn">Suivant</button>
+	</div>
+	</form>
+       <!-- Redirect to control panel -->
+	
+   
+
 
 <!-- partial -->
   <script  src="./spe-select.js"></script>
