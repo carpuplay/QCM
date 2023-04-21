@@ -5,8 +5,8 @@ session_start();
 require_once "config.php";
 
 // Define variables and initialize with empty values
-$username = $email = $password = "";
-$username_err = $email_err = $password_err =  "";
+$username = $email = $password = $niveau = "";
+$username_err = $email_err = $password_err = $niveau_err =  "";
  
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -37,14 +37,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 } else{
                     $username = trim($_POST["username"]);
                 }
-            } else{
-                echo "Oops! Something went wrong. Please try again later.";
-            }
 
             // Close statement
             mysqli_stmt_close($stmt);
         }
     }
+    }
+}
     
     if(empty(trim($_POST["email"]))){
         $email_err = "Please enter a email.";
@@ -69,10 +68,25 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 } else{
                     $email = trim($_POST["email"]);
                 }
-            } else{
-                echo "Oops! Something went wrong. Please try again later.";
-            }
-
+            // Close statement
+            mysqli_stmt_close($stmt);
+        }
+    }
+    
+    if(empty(trim($_POST["niveaux"]))){
+        $niveau_err = "Please select your level.";
+    } else{
+        // Prepare a select statement
+        $sql = "SELECT id FROM users WHERE niveaux = ?";
+        
+        if($stmt = mysqli_prepare($link, $sql)){
+            // Bind variables to the prepared statement as parameters
+            mysqli_stmt_bind_param($stmt, "s", $param_niveaux);
+            // Set parameters
+            $param_niveau = trim($_POST["niveaux"]);        
+            /* store result */
+            mysqli_stmt_store_result($stmt);
+            $niveau = trim($_POST["niveaux"]);
             // Close statement
             mysqli_stmt_close($stmt);
         }
@@ -93,16 +107,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty($username_err) && empty($password_err) ){
         
                 // Prepare an insert statement
-        $sql = "INSERT INTO users (username, email, password) VALUES (?, ?, ?)";
+        $sql = "INSERT INTO users (username, email, password, niveaux) VALUES (?, ?, ?, ?)";
 
         if($stmt = mysqli_prepare($link, $sql)){
-            // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "sss", $param_username, $param_email, $param_password);
-                    
             // Set parameters
             $param_username = $username;
             $param_email = $email;
             $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
+            $param_niveau = $niveau;
+
+            // Bind variables to the prepared statement as parameters
+            mysqli_stmt_bind_param($stmt, "ssss", $param_username, $param_email, $param_password, $param_niveau);
 
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
