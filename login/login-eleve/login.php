@@ -65,7 +65,7 @@ session_unset();
   
 	<script type="text/javascript">
 	  document.getElementById("menu-5").onclick = function () {
-		location.href = "../../landing-page/landing-prof/landing.html";
+		location.href = "../../landing-page/landing-prof/landing.php";
 	  };
 	</script>
 </nav>
