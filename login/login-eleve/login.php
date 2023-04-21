@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" >
 <head>
+<style type="text/css"> 
+	input[type="radio"]{
+	background-color: rgb(0, 0, 0);
+	accent-color: rgb(255, 165, 0);
+	}
+	label{
+	color: rgb(255, 165, 0);
+	margin-right: 20%;
+	}
+</style>
   <meta charset="UTF-8">
   <title>QcmHub - Login</title>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'>
@@ -110,6 +120,13 @@ session_unset();
 														<input type="password" name="password" class="form-style" placeholder="Mot de passe"  autocomplete="on" 
 														<?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?> >
 														<i class="input-icon uil uil-lock-alt"></i>
+													</div>
+													<div class="choix">
+														<p></p>
+													<input type="radio" name="niveaux" value="Premiere">
+														<label for="niveaux"> Première </label>
+													<input type="radio" name="niveaux" value="Terminale">
+														<label for="niveaux"> Terminale </label>
 													</div>
 													<input type="submit" class="btn mt-4" value="Créer un compte" >
 												</form>

@@ -336,6 +336,10 @@ h6 span{
   box-shadow: 0 8px 24px 0 rgba(255, 255, 255, 0.418);
 }
 
+.choix{
+  align-content: left;
+  padding-left: 10%;
+}
 
 /*
 .logo {                        
