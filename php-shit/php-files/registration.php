@@ -1,12 +1,19 @@
 <?php
+// Initialize the session
 session_start();
- // assuming $email is the user's email address  
+ 
+// Check if the user is already logged in, if yes then redirect him to dashboard page
+if (isset($_SESSION['email'])) {
+    header('Location: ../../content/ff/index.php');
+    exit();
+}
+ 
 // Include config file
 require_once "config.php";
-
+ 
 // Define variables and initialize with empty values
-$username = $email = $password = $niveau = "";
-$username_err = $email_err = $password_err = $niveau_err =  "";
+$username = $email = $password = $niveau = $prof = "";
+$username_err = $email_err = $password_err = $niveau_err = $prof_err = "";
  
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -40,11 +47,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
             // Close statement
             mysqli_stmt_close($stmt);
+            }
         }
     }
-    }
-}
     
+    // Validate email
     if(empty(trim($_POST["email"]))){
         $email_err = "Please enter a email.";
     } else{
@@ -70,6 +77,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 }
             // Close statement
             mysqli_stmt_close($stmt);
+            }
         }
     }
     
@@ -95,71 +103,64 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate password
     if(empty(trim($_POST["password"]))){
         $password_err = "Please enter a password.";     
-    } elseif(strlen(trim($_POST["password"])) < 8){
-        $password_err = "Password must have atleast 8 characters.";
+    } elseif(strlen(trim($_POST["password"])) <= 8){
+        $password_err = "Password must have at least 8 characters.";
     } else{
         $password = trim($_POST["password"]);
     }
-    
+
+   
+    // Check if the user is a teacher or a student
     if(empty(trim($_POST["prof"]))){
-        $prof_err = "Please enter a email.";
+        $prof_err = "error";
     } else{
-        // Prepare a select statement
-        $sql = "SELECT id FROM users WHERE prof = ?";
+        $sql = "SELECT id FROM users WHERE prof = ? ";
         
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
             mysqli_stmt_bind_param($stmt, "s", $param_prof);
-            
             // Set parameters
-            $param_prof = trim($_POST["prof"]);
-            
-            // Attempt to execute the prepared statement
-            if(mysqli_stmt_execute($stmt)){
-                /* store result */
-                mysqli_stmt_store_result($stmt);
-                
-               
-                $email = trim($_POST["email"]);
-            }
+            $param_niveau = trim($_POST["prof"]);        
+            /* store result */
+            mysqli_stmt_store_result($stmt);
+            $prof = trim($_POST["prof"]);
             // Close statement
             mysqli_stmt_close($stmt);
         }
     }
-    
+
+
     // Check input errors before inserting in database
     if(empty($username_err) && empty($password_err) ){
-        
-                // Prepare an insert statement
-        $sql = "INSERT INTO users (username, email, password, prof, niveaux) VALUES (?, ?, ?, ?, ?)";
 
+        // Prepare an insert statement
+        $sql = "INSERT INTO users (username, email, password, niveau, prof) VALUES (?, ?, ?, ?, ?)";
+        
         if($stmt = mysqli_prepare($link, $sql)){
+            // Bind variables to the prepared statement as parameters
+            mysqli_stmt_bind_param($stmt, "sssss", $param_username, $param_email, $param_password,$param_prof, $param_niveau);
+            
             // Set parameters
             $param_username = $username;
             $param_email = $email;
             $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
             $param_niveau = $niveau;
-
-            // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "ssss", $param_username, $param_email, $param_password, $param_niveau);
-
+            $param_prof = $prof;
+            
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
-                $_SESSION['email'] = $email;
                 // Redirect to login page
-                header("location: ../../login/spe-select/spe-select.php");
+                header("location: ../../content/ff/index.php");
             } else{
-                echo "Oops! Something went wrong. Please try again later.";
+                echo "Something went wrong. Please try again later.";
             }
-
             // Close statement
             mysqli_stmt_close($stmt);
+
         }
-
     }
-    
-    // Close connection
-    mysqli_close($link);
-}   
 
+    //Close connection
+    mysqli_close($link);
+}
 ?>
