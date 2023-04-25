@@ -65,7 +65,7 @@ session_unset();
   
 	<script type="text/javascript">
 	  document.getElementById("menu-5").onclick = function () {
-		location.href = "../../landing-page/landing-prof/landing.php";
+		location.href = "../../landing-page/landing-prof/landing.html";
 	  };
 	</script>
 </nav>
@@ -86,7 +86,8 @@ session_unset();
 										<div class="section text-center">
 											<h4 class="mb-4 pb-3">Se Connecter</h4>
                                             <form action="../../php-shit/php-files/verification.php" method="POST">
-                                                <div class="form-group">
+												<input type="hidden" name="prof" value="0">
+												<div class="form-group">
                                                     
                                                         <input type="email" name="email" class="form-style" placeholder="Email"  autocomplete="on">
                                                         <i class="input-icon uil uil-at"></i>
@@ -128,6 +129,7 @@ session_unset();
 													<input type="radio" name="niveaux" value="Terminale">
 														<label for="niveaux"> Terminale </label>
 													</div>
+													<input type="hidden" name="prof" value="0">
 													<input type="submit" class="btn mt-4" value="Créer un compte" >
 												</form>
 				      					</div>
