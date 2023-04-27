@@ -93,21 +93,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty(trim($_POST["niveaux"]))){
         $niveau_err = "Please select your level.";
     } else {
-        // Prepare a select statement
-        $sql = "SELECT id FROM users WHERE niveaux = ?";
-            
-        if($stmt = mysqli_prepare($link, $sql)){
-            // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "s", $param_niveaux);
-            // Set parameters
-            $param_niveaux = trim($_POST["niveaux"]);        
-            /* store result */
-            mysqli_stmt_store_result($stmt);
             $niveaux = trim($_POST["niveaux"]);
-            // Close statement
-            mysqli_stmt_close($stmt);
         }
-    }
+    
     
     // Validate password
     if(empty(trim($_POST["password"]))){
@@ -162,3 +150,4 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     mysqli_close($link);
 }
 ?>
+
