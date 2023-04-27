@@ -147,7 +147,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     header("location: ../../login/spe-select/spe-select.php");
                 }elseif($_POST["prof"] == "1"){
                     $_SESSION['email'] = $email;
-                    header("location: ../../landing-page/landing-prof/landing.html");
+                    header("location: ../../login/spe-select/spe-select-prof.php");
                 } 
             }else{
                 echo "Something went wrong. Please try again later.";
