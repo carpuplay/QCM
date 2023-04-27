@@ -39,7 +39,7 @@ nav.full {
 }
 nav.full .underline {
   height: 100%;
-  background: #005AFF;
+  background: gold;
 }
 
 .slider-thumb::before {     /*la bule orange   - à eliminer pour la version mobile*/
@@ -49,7 +49,7 @@ nav.full .underline {
   top: 18%;
   width: 76%;
   height: 85%;
-  background: #005AFF;
+  background: #FE1CCC;
   border-radius: 62% 47% 82% 35% / 45% 45% 80% 66%;
   will-change: border-radius, transform, opacity;
   animation: sliderShape 5s linear infinite;
@@ -86,7 +86,7 @@ a:hover {
   color: #c4c3ca;
 }
 .link:hover {
-  color:#005AFF;
+  color:#6AC72E;
 }
 p {
   font-weight: 500;
@@ -125,7 +125,7 @@ h6 span{
   padding: 0;
   margin: 10px auto;
   cursor: pointer;
-  background-color: #000000;
+  background-color: #6AC72E;
 }
 .checkbox:checked + label:before,
 .checkbox:not(:checked) + label:before{
@@ -135,7 +135,7 @@ h6 span{
   height: 36px;
   border-radius: 50%;
   color: #ffffff;
-  background-color:#000000;
+  background-color:#6AC72E;
   font-family: 'unicons';
   content: '\eb4f';
   z-index: 20;
@@ -246,7 +246,7 @@ h6 span{
   font-size: 24px;
   line-height: 48px;
   text-align: left;
-  color:#005AFF;
+  color:#6AC72E;
   -webkit-transition: all 200ms linear;
     transition: all 200ms linear;
 }
@@ -320,8 +320,8 @@ h6 span{
   -ms-flex-pack: center;
   text-align: center;
   border: none;
-  background-color: #005AFF;
-  color: #ffffff;
+  background-color: #6AC72E;
+  color: #000000;
   box-shadow: 0 8px 24px 0 rgba(255, 166, 0, 0.185);
 }
 .btn:active,

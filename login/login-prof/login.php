@@ -7,18 +7,7 @@
 <link rel='stylesheet' href='https://unicons.iconscout.com/release/v2.1.9/css/unicons.css'><link rel="stylesheet" href="./login.css">  
 </head>
 
-<?php
-session_start(); //esto sirve para destruir ñla info que queda del user si vuelve a la pagina de inicio (log in)
-if (isset($_SESSION["message"]))
-{
-    print("<h1>".$_SESSION["message"]."</h1>");
 
-}
-unset($_SESSION['identifiant']);
-unset($_SESSION['droits']);
-unset($_SESSION["message"]);
-session_unset();
-?>
 <!-- partial:landing.partial.html -->
 <nav class="full">
 	<div class="underline"></div>
@@ -76,7 +65,8 @@ session_unset();
 										<div class="section text-center">
 											<h4 class="mb-4 pb-3">Se Connecter</h4>
                                             <form action="../../php-shit/php-files/verification.php" method="POST">
-                                                <div class="form-group">
+												
+												<div class="form-group">
                                                     
                                                         <input type="email" name="email" class="form-style" placeholder="Email"  autocomplete="on">
                                                         <i class="input-icon uil uil-at"></i>
@@ -97,6 +87,7 @@ session_unset();
 											<h4 class="mb-4 pb-3">Créer un compte</h4>
 											<div class="form-group">
 												<form action="../../php-shit/php-files/registration.php" method="POST">
+													<input type="hidden" name="prof" value="1">
 													<div class="form-group">
 														<input type="text" name="username" class="form-style" placeholder="Identifiant"  autocomplete="off" 
 														<?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>>
@@ -111,6 +102,7 @@ session_unset();
 														<?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?> >
 														<i class="input-icon uil uil-lock-alt"></i>
 													</div>
+													<input type ="hidden" name="niveaux" value="none">
 													<input type="submit" class="btn mt-4" value="Créer un compte" >
 												</form>
 				      					</div>

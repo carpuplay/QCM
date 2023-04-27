@@ -24,7 +24,7 @@ if (!isset($_SESSION['email'])) {
       <legend class="checkbox-group-legend">Choisis tes Spécialités</legend>
       <div class="checkbox">
         <label class="checkbox-wrapper">
-          <input type="checkbox" name="spe[]" class="checkbox-input" value="ses" id="ses-checkbox" />
+          <input type="checkbox" name="ses" class="checkbox-input" value="ses" id="ses-checkbox" />
           <span class="checkbox-tile">
             <span class="checkbox-icon">
               <!-- -->
@@ -35,7 +35,7 @@ if (!isset($_SESSION['email'])) {
       </div>
       <div class="checkbox">
         <label class="checkbox-wrapper">
-          <input type="checkbox" class="checkbox-input" name="spe[]" value="maths" id="maths-checkbox"/>
+          <input type="checkbox" class="checkbox-input" name="math" value="maths" id="maths-checkbox"/>
           <span class="checkbox-tile">
             <span class="checkbox-icon">
               <!-- -->
@@ -46,7 +46,7 @@ if (!isset($_SESSION['email'])) {
       </div>
       <div class="checkbox">
         <label class="checkbox-wrapper">
-          <input type="checkbox" class="checkbox-input" name='spe[]' value='physique'/>
+          <input type="checkbox" class="checkbox-input" name='physique' value='physique'/>
           <span class="checkbox-tile">
             <span class="checkbox-icon">
               <!-- -->
@@ -57,7 +57,7 @@ if (!isset($_SESSION['email'])) {
       </div>
       <div class="checkbox">
         <label class="checkbox-wrapper">
-          <input type="checkbox" class="checkbox-input" name="spe[]" value="hlp"/>
+          <input type="checkbox" class="checkbox-input" name="hlp" value="hlp"/>
           <span class="checkbox-tile">
             <span class="checkbox-icon">
               <!-- -->
@@ -68,7 +68,7 @@ if (!isset($_SESSION['email'])) {
       </div>
       <div class="checkbox">
         <label class="checkbox-wrapper">
-          <input type="checkbox" class="checkbox-input" name="spe[]" value="nsi" />
+          <input type="checkbox" class="checkbox-input" name="nsi" value="nsi" />
           <span class="checkbox-tile">
             <span class="checkbox-icon">
               <!-- -->
@@ -79,7 +79,7 @@ if (!isset($_SESSION['email'])) {
       </div>
       <div class="checkbox">
         <label class="checkbox-wrapper">
-          <input type="checkbox" class="checkbox-input" name="spe[]" value="geopo"/>
+          <input type="checkbox" class="checkbox-input" name="geopo" value="geopo"/>
           <span class="checkbox-tile">
             <span class="checkbox-icon">
               <!-- -->
@@ -90,7 +90,7 @@ if (!isset($_SESSION['email'])) {
       </div>
       <div class="checkbox">
         <label class="checkbox-wrapper">
-          <input type="checkbox" class="checkbox-input" name="spe[]" value="svt"/>
+          <input type="checkbox" class="checkbox-input" name="svt" value="svt"/>
 		  <span class="checkbox-tile">
             <span class="checkbox-icon">
               <!-- -->
@@ -112,8 +112,7 @@ if (!isset($_SESSION['email'])) {
 			</div>			
 		</fieldset>
 		<div class="submit">
-			<input type='submit' id="button-submit" class="submit-btn">
-    
+			<input type='submit' id="button-submit" class="submit-btn">Suivant</button>
 		</div>
 	</form>
 

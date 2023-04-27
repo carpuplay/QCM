@@ -86,7 +86,8 @@ session_unset();
 										<div class="section text-center">
 											<h4 class="mb-4 pb-3">Se Connecter</h4>
                                             <form action="../../php-shit/php-files/verification.php" method="POST">
-                                                <div class="form-group">
+												
+												<div class="form-group">
                                                     
                                                         <input type="email" name="email" class="form-style" placeholder="Email"  autocomplete="on">
                                                         <i class="input-icon uil uil-at"></i>
@@ -107,6 +108,7 @@ session_unset();
 											<h4 class="mb-4 pb-3">Créer un compte</h4>
 											<div class="form-group">
 												<form action="../../php-shit/php-files/registration.php" method="POST">
+													<input type="hidden" name="prof" value="0">
 													<div class="form-group">
 														<input type="text" name="username" class="form-style" placeholder="Identifiant"  autocomplete="off" 
 														<?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>>
@@ -128,6 +130,7 @@ session_unset();
 													<input type="radio" name="niveaux" value="Terminale">
 														<label for="niveaux"> Terminale </label>
 													</div>
+													<input type="hidden" name="prof" value="0">
 													<input type="submit" class="btn mt-4" value="Créer un compte" >
 												</form>
 				      					</div>
