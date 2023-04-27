@@ -5,8 +5,9 @@ session_start();
 require_once "config.php";
 
 // Define variables and initialize with empty values
-$username = $email = $password = $niveau = "";
+$username = $email = $password = "";
 $username_err = $email_err = $password_err = $niveau_err =  "";
+$niveau = "Prof";
  
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -73,25 +74,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }
     }
     
-    if(empty(trim($_POST["niveaux"]))){
-        $niveau_err = "Please select your level.";
-    } else{
-        // Prepare a select statement
-        $sql = "SELECT id FROM users WHERE niveaux = ?";
-        
-        if($stmt = mysqli_prepare($link, $sql)){
-            // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "s", $param_niveaux);
-            // Set parameters
-            $param_niveau = trim($_POST["niveaux"]);        
-            /* store result */
-            mysqli_stmt_store_result($stmt);
-            $niveau = trim($_POST["niveaux"]);
-            // Close statement
-            mysqli_stmt_close($stmt);
-        }
-    }
-
     // Validate password
     if(empty(trim($_POST["password"]))){
         $password_err = "Please enter a password.";     
@@ -100,10 +82,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } else{
         $password = trim($_POST["password"]);
     }
-
+    
+    
     
     // Check input errors before inserting in database
-    if(empty($username_err) && empty($password_err) ){
+    if(empty($username_err) && empty($email_err) && empty($password_err) ){
         
                 // Prepare an insert statement
         $sql = "INSERT INTO users (username, email, password, niveaux) VALUES (?, ?, ?, ?)";
@@ -122,7 +105,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             if(mysqli_stmt_execute($stmt)){
                 $_SESSION['email'] = $email;
                 // Redirect to login page
-                header("location: ../../login/spe-select/spe-select.php");
+                header("location: ../../login/spe-select/spe-select-prof.php");
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
             }
