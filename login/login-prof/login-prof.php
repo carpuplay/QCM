@@ -1,20 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" >
 <head>
-<style type="text/css"> 
-	input[type="radio"]{
-	background-color: rgb(0, 0, 0);
-	accent-color: rgb(255, 165, 0);
-	}
-	label{
-	color: rgb(255, 165, 0);
-	margin-right: 20%;
-	}
-</style>
   <meta charset="UTF-8">
   <title>QcmHub - Login</title>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'>
-<link rel='stylesheet' href='https://unicons.iconscout.com/release/v2.1.9/css/unicons.css'><link rel="stylesheet" href="./login.css">  
+<link rel='stylesheet' href='https://unicons.iconscout.com/release/v2.1.9/css/unicons.css'><link rel="stylesheet" href="./login-prof.css">  
 </head>
 
 <?php
@@ -38,7 +28,7 @@ session_unset();
   <a class="header-cl" onClick="ul(1)" id="menu-2">FAQ</a>
   <a class="header-cl" onClick="ul(2)" id="menu-3" >Qui sommes nous?</a>
   <a class="header-cl" onClick="ul(3)" id="menu-4">Orientation</a>
-  <a class="header-cl" onClick="ul(4)" id="menu-5">Espace Prof</a>
+  <a class="header-cl" onClick="ul(4)" id="menu-5">Espace Élève</a>
 	<script type="text/javascript">
 		  document.getElementById("menu-1").onclick = function () {
 			location.href = "../../index.html";
@@ -65,13 +55,13 @@ session_unset();
   
 	<script type="text/javascript">
 	  document.getElementById("menu-5").onclick = function () {
-		location.href = "../../landing-page/landing-prof/landing.html";
+		location.href = "../../index.html";
 	  };
 	</script>
 </nav>
   
 <body>
-	<div class="section">
+    <div class="section">
 		<div class="container">
 			<div class="row full-height justify-content-center">
 				<div class="col-12 text-center align-self-center py-5">
@@ -106,7 +96,7 @@ session_unset();
 										<div class="section text-center">
 											<h4 class="mb-4 pb-3">Créer un compte</h4>
 											<div class="form-group">
-												<form action="../../php-shit/php-files/registration.php" method="POST">
+												<form action="../../php-shit/php-files/registration-prof.php" method="POST">
 													<div class="form-group">
 														<input type="text" name="username" class="form-style" placeholder="Identifiant"  autocomplete="off" 
 														<?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>>
@@ -120,13 +110,6 @@ session_unset();
 														<input type="password" name="password" class="form-style" placeholder="Mot de passe"  autocomplete="on" 
 														<?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?> >
 														<i class="input-icon uil uil-lock-alt"></i>
-													</div>
-													<div class="choix">
-														<p></p>
-													<input type="radio" name="niveaux" value="Premiere">
-														<label for="niveaux"> Première </label>
-													<input type="radio" name="niveaux" value="Terminale">
-														<label for="niveaux"> Terminale </label>
 													</div>
 													<input type="submit" class="btn mt-4" value="Créer un compte" >
 												</form>

@@ -13,7 +13,7 @@ if (!isset($_SESSION['email'])) {
   <title>Choisir Spécialités</title>
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-  <link rel="stylesheet" href="./spe-select.css">
+  <link rel="stylesheet" href="./spe-select-prof.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </head>
@@ -21,7 +21,7 @@ if (!isset($_SESSION['email'])) {
 
   <form action="../../php-shit/php-files/update-specialites.php" method="post">
     <fieldset class="checkbox-group">
-      <legend class="checkbox-group-legend">Choisis tes Spécialités</legend>
+      <legend class="checkbox-group-legend">Choisissez Les Spécialités Que Vous Enseignez</legend>
       <div class="checkbox">
         <label class="checkbox-wrapper">
           <input type="checkbox" name="spe[]" class="checkbox-input" value="ses" id="ses-checkbox" />
@@ -84,7 +84,7 @@ if (!isset($_SESSION['email'])) {
             <span class="checkbox-icon">
               <!-- -->
             </span>
-            <span class="checkbox-label">Géopolitique</span>
+            <span class="checkbox-label">Géopo</span>
           </span>
         </label>
       </div>
@@ -113,7 +113,6 @@ if (!isset($_SESSION['email'])) {
 		</fieldset>
 		<div class="submit">
 			<input type='submit' id="button-submit" class="submit-btn">
-    
 		</div>
 	</form>
 
