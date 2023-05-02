@@ -1,0 +1,121 @@
+@import url('https://tonts.googleapis.com/css27?tamily=Balsamiq+Sans:wght@400;7006d1splay=swap');
+
+*{
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Termina', sans-serif;
+    color: #f8f8f8;
+    background: #000000;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+.question-title{
+    position:absolute;
+    top: 30vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    font-size: 32px;
+    font-weight: 800;
+    color: black;
+
+}
+
+.container{
+    max-width: 700px;
+    padding: 20px;
+    width: 100%;
+    background-color: #0e0e0e;
+    background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat.svg');
+    background-repeat: no-repeat;
+    position: absolute;
+    border-radius: 6px;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+}
+
+.section{
+    position: relative;
+    width: 100%;
+    display: block;
+}
+
+.slider-thumb::before {     /*la bule orange   - à eliminer pour la version mobile*/
+    position: absolute;
+    content: "";
+    left: 20%;
+    top: 0%;
+    width: 60%;
+    height: 100%;
+    background: rgb(255, 166, 0);
+    border-radius: 38% 47% 82% 35% / 45% 48% 70% 66%;
+    will-change: border-radius, transform, opacity;
+    animation: sliderShape 5s linear infinite;
+    display: block;
+    z-index: -1;
+    overflow-x: hidden;
+    -webkit-animation: sliderShape 8s linear infinite;
+  }
+  @keyframes sliderShape{
+    0%,100%{
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+      transform: translate3d(0,0,0) rotateZ(-8.70deg);
+    }
+    34%{
+        border-radius: 70% 30% 46% 54% / 30% 29% 71% 70%;
+      transform:  translate3d(0,7px,-45px) rotateZ(4.01deg);
+    }
+    50%{
+      transform: translate3d(15px,0,0) rotateZ(0.04deg);
+    }
+    67%{
+      border-radius: 100% 60% 60% 100% / 100% 100% 60% 60% ;
+      transform: translate3d(85px,-3px,29px) rotateZ(18.25deg);
+    }
+}
+
+
+
+/*main buttons */
+.container button{
+    padding: 20px 40px;
+    background-color: #050801;
+    color: orange;
+    font-weight: bold;
+    font-family: "Termina", sans-serif;
+    border: none;
+    border-radius: 5px;
+    letter-spacing: 0.1vw;
+    font-size: 12px;
+    overflow: hidden;
+    transition: 0.5s;
+    cursor: pointer;
+    position: absolute;
+    top: 10em;
+    left: 50%;
+    justify-content: center;
+    
+  }
+  
+  button:hover{
+      background: orange;
+      color: #050801;
+      box-shadow: 0 0 5px orange,
+                  0 0 25px orange,
+                  0 0 50px orange,
+                  0 0 200px orange;
+       
+}
+
+.q1{
+
+}
+
+h2{
+    text-align: 30px;
+    color: darkred;
+}

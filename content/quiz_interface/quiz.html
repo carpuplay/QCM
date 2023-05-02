@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=devise-width, initial-scale=1.0">
+    <title>QCM</title>
+    <link rel="stylesheet" href="quiz.css">
+</head>
+<body>
+    <header>
+        <h1>Interfaz_Juego</h1>
+    </header>
+    <div class="slider-thumb"></div>
+    <h3 class="question-title">Titre de la Question</h3>
+    <div class="container">
+        <section id="p0">
+            
+            <label class="q1">
+                <input type="radio" value="1" name="p0" onclick="result(0,this)"> //aqui tendra que ir la respuesta 1
+            </label>
+            <label class="q2">
+                <input type="radio" value="2" name="p0"onclick="result(0,this)"> //aqui tendra que ir la respuesta 2
+            </label>
+            <label class="q3">
+                <input type="radio" value="3" name="p0"onclick="result(0,this)"> //aqui tendra que ir la respuesta 3
+            </label>
+            <label class="q4">
+                <input type="radio" value="3" name="p0"onclick="result(0,this)"> //aqui tendra que ir la respuesta 3
+            </label>
+            //habra que repetir el h3 para cada pregunta
+        </section>
+        <button>Envoyer vos réponses</button>
+        <h2>Réponses correctes: <span id="result"></span></h2>
+    </div>
+    <script src="quiz.js"></script>
+</body>
