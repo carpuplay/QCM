@@ -132,7 +132,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 // Redirect to login page
                 if($_POST["prof"] == "0"){
                     $_SESSION['email'] = $email;
-                    $_SESSION['niveaux'] = $niveaux;
                     header("location: ../../login/spe-select/spe-select.php");
                 }elseif($_POST["prof"] == "1"){
                     $_SESSION['email'] = $email;
@@ -151,3 +150,4 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     mysqli_close($link);
 }
 ?>
+
