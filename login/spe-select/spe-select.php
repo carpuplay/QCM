@@ -4,7 +4,6 @@ if (!isset($_SESSION['email'])) {
     header('Location: ../../login/login-eleve/login.php');
     exit();
 }
-$niveaux = $_SESSION['niveaux'];
 ?>
 
 <!DOCTYPE html>
@@ -20,58 +19,12 @@ $niveaux = $_SESSION['niveaux'];
 </head>
 <body>
 
-<form action="../../php-shit/php-files/update-specialites.php" method="POST">
-<script>
-    function checkboxes()
-      {
-       var inputElems = document.getElementsByTagName("input"),
-        count = 0;
-
-        for (var i=0; i<inputElems.length; i++) {       
-           if (inputElems[i].type == "checkbox" && inputElems[i].checked == true){
-              count++;
-           }
-
-        }
-      return count;
-     }
-  </script>
-  <script>
-      setInterval(function limite(){
-            count=call(checkboxes());
-            if ($niveaux == 'Premiere'){
-              if (count > 3) {
-                document.getElementById('ses').checked=false;
-                document.getElementById('maths').checked=false;
-                document.getElementById('nsi').checked=false;
-                document.getElementById('geopo').checked=false;
-                document.getElementById('physique').checked=false;
-                document.getElementById('hlp').checked=false;
-                document.getElementById('anglais').checked=false;
-                document.getElementById('svt').checked=false;
-                alert("allowed only 3");
-              }
-            }else{
-              if (count > 2) {
-                document.getElementById('ses').checked=false;
-                document.getElementById('maths').checked=false;
-                document.getElementById('nsi').checked=false;
-                document.getElementById('geopo').checked=false;
-                document.getElementById('physique').checked=false;
-                document.getElementById('hlp').checked=false;
-                document.getElementById('anglais').checked=false;
-                document.getElementById('svt').checked=false;
-                alert("allowed only 2");
-              }
-            }
-          }, 500)
-  </script>
-
+  <form action="../../php-shit/php-files/update-specialites.php" method="post">
     <fieldset class="checkbox-group">
-      <legend class="checkbox-group-legend">Choisis Tes Spécialités</legend>
+      <legend class="checkbox-group-legend">Choisis tes Spécialités</legend>
       <div class="checkbox">
         <label class="checkbox-wrapper">
-          <input type="checkbox" name="ses" id="ses" class="checkbox-input" value="ses"/>
+          <input type="checkbox" name="ses" class="checkbox-input" value="ses" id="ses-checkbox" />
           <span class="checkbox-tile">
             <span class="checkbox-icon">
               <!-- -->
@@ -82,7 +35,7 @@ $niveaux = $_SESSION['niveaux'];
       </div>
       <div class="checkbox">
         <label class="checkbox-wrapper">
-          <input type="checkbox" class="checkbox-input" name="maths" id="maths" value="maths"/>
+          <input type="checkbox" class="checkbox-input" name="math" value="maths" id="maths-checkbox"/>
           <span class="checkbox-tile">
             <span class="checkbox-icon">
               <!-- -->
@@ -93,7 +46,7 @@ $niveaux = $_SESSION['niveaux'];
       </div>
       <div class="checkbox">
         <label class="checkbox-wrapper">
-          <input type="checkbox" class="checkbox-input" name='physique' id="physique" value='physique'/>
+          <input type="checkbox" class="checkbox-input" name='physique' value='physique'/>
           <span class="checkbox-tile">
             <span class="checkbox-icon">
               <!-- -->
@@ -104,7 +57,7 @@ $niveaux = $_SESSION['niveaux'];
       </div>
       <div class="checkbox">
         <label class="checkbox-wrapper">
-          <input type="checkbox" class="checkbox-input" name="hlp" id="hlp" value="hlp"/>
+          <input type="checkbox" class="checkbox-input" name="hlp" value="hlp"/>
           <span class="checkbox-tile">
             <span class="checkbox-icon">
               <!-- -->
@@ -115,7 +68,7 @@ $niveaux = $_SESSION['niveaux'];
       </div>
       <div class="checkbox">
         <label class="checkbox-wrapper">
-          <input type="checkbox" class="checkbox-input" name="nsi" id="nsi" value="nsi" />
+          <input type="checkbox" class="checkbox-input" name="nsi" value="nsi" />
           <span class="checkbox-tile">
             <span class="checkbox-icon">
               <!-- -->
@@ -126,18 +79,18 @@ $niveaux = $_SESSION['niveaux'];
       </div>
       <div class="checkbox">
         <label class="checkbox-wrapper">
-          <input type="checkbox" class="checkbox-input" name="geopo" id="geopo" value="geopo"/>
+          <input type="checkbox" class="checkbox-input" name="geopo" value="geopo"/>
           <span class="checkbox-tile">
             <span class="checkbox-icon">
               <!-- -->
             </span>
-            <span class="checkbox-label">Géopo</span>
+            <span class="checkbox-label">Géopolitique</span>
           </span>
         </label>
       </div>
       <div class="checkbox">
         <label class="checkbox-wrapper">
-          <input type="checkbox" class="checkbox-input" name="svt" id="svt" value="svt"/>
+          <input type="checkbox" class="checkbox-input" name="svt" value="svt"/>
 		  <span class="checkbox-tile">
             <span class="checkbox-icon">
               <!-- -->
@@ -148,7 +101,7 @@ $niveaux = $_SESSION['niveaux'];
 			</div>
 		<div class="checkbox">
 			<label class="checkbox-wrapper">
-				<input type="checkbox" class="checkbox-input" name="anglais" id="anglais" value='anglais'/>
+				<input type="checkbox" class="checkbox-input" name="anglais"/>
 				<span class="checkbox-tile">
 					<span class="checkbox-icon">
 						<!-- -->
@@ -156,16 +109,22 @@ $niveaux = $_SESSION['niveaux'];
 					<span class="checkbox-label">Anglais</span>
 				</span>
 				</label>  
-			</div>		
+			</div>			
 		</fieldset>
 		<div class="submit">
-			<input type='submit' id="button-submit" class="submit-btn">Suivant</button>
+			<button id="button-submit" class="submit-btn">Suivant</button>
 		</div>
 	</form>
+
+</body>
+</html>
+       <!-- Redirect to control panel -->
+	
+   
 
 
 <!-- partial -->
   <script  src="./spe-select.js"></script>
-  
+
 </body>
 </html>

@@ -85,7 +85,7 @@ h1 {
   /* The typewriter cursor effect */
   @keyframes blink-caret {
     from, to { border-color: transparent }
-    50% { border-color: #80d9ff; }
+    50% { border-color: rgb(99, 99, 99); }
   }
 
 .hub {
