@@ -21,11 +21,57 @@ $niveaux = $_SESSION['niveaux'];
 <body>
 
 <form action="../../php-shit/php-files/update-specialites.php" method="POST">
+<script>
+    function checkboxes()
+      {
+       var inputElems = document.getElementsByTagName("input"),
+        count = 0;
+
+        for (var i=0; i<inputElems.length; i++) {       
+           if (inputElems[i].type == "checkbox" && inputElems[i].checked == true){
+              count++;
+           }
+
+        }
+      return count;
+     }
+  </script>
+  <script>
+      setInterval(function limite(){
+            count=call(checkboxes());
+            if ($niveaux == 'Premiere'){
+              if (count > 3) {
+                document.getElementById('ses').checked=false;
+                document.getElementById('maths').checked=false;
+                document.getElementById('nsi').checked=false;
+                document.getElementById('geopo').checked=false;
+                document.getElementById('physique').checked=false;
+                document.getElementById('hlp').checked=false;
+                document.getElementById('anglais').checked=false;
+                document.getElementById('svt').checked=false;
+                alert("allowed only 3");
+              }
+            }else{
+              if (count > 2) {
+                document.getElementById('ses').checked=false;
+                document.getElementById('maths').checked=false;
+                document.getElementById('nsi').checked=false;
+                document.getElementById('geopo').checked=false;
+                document.getElementById('physique').checked=false;
+                document.getElementById('hlp').checked=false;
+                document.getElementById('anglais').checked=false;
+                document.getElementById('svt').checked=false;
+                alert("allowed only 2");
+              }
+            }
+          }, 500)
+  </script>
+
     <fieldset class="checkbox-group">
       <legend class="checkbox-group-legend">Choisis Tes Spécialités</legend>
       <div class="checkbox">
         <label class="checkbox-wrapper">
-          <input type="checkbox" class="checkbox-input" name="ses" id="ses" value="ses"/>
+          <input type="checkbox" name="ses" id="ses" class="checkbox-input" value="ses"/>
           <span class="checkbox-tile">
             <span class="checkbox-icon">
               <!-- -->
@@ -114,46 +160,12 @@ $niveaux = $_SESSION['niveaux'];
 		</fieldset>
 		<div class="submit">
 			<button id="button-submit" class="submit-btn">Suivant</button>
-    </div>
+		</div>
+	</form>
 
-  </form>
 
-  <script>
-    const checkbox1 = document.getElementById('ses');
-    const checkbox2 = document.getElementById('maths');
-    const checkbox3 = document.getElementById('physique');
-    const checkbox4 = document.getElementById('hlp');
-    const checkbox5 = document.getElementById('nsi');
-    const checkbox6 = document.getElementById('geopo');
-    const checkbox7 = document.getElementById('svt');
-    const checkbox8 = document.getElementById('anglais');
-
-    var niveaux = <?php echo json_encode($niveaux); ?>;
-    var maxCheckboxes = 3;
-    var checkedCount = 0;
-    var checkboxList = [checkbox1, checkbox2, checkbox3,checkbox4, checkbox5, checkbox6, checkbox7, checkbox8];
-   
-    if (niveaux == "Terminale") {
-      maxCheckboxes = 2;
-    }
-
-    for (var i = 0; i < checkboxList.length; i++) {
-      checkboxList[i].addEventListener("click", function(event) {
-        for (var j = 0; j < checkboxList.length; j++) {
-          if (checkboxList[j].checked) {
-          checkedCount = checkedCount + 1;
-        }
-        }
-        
-        if (checkedCount > maxCheckboxes) {
-        event.preventDefault();
-        alert("You may only select up to " + maxCheckboxes + " spécialités.");
-        }
-        checkedCount = 0;
-      });
-    }
-
-  </script>
-
+<!-- partial -->
+  <script  src="./spe-select.js"></script>
+  
 </body>
 </html>
