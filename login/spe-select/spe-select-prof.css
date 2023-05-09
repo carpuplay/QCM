@@ -83,7 +83,7 @@ body {
   width: 7rem;
   min-height: 7rem;
   border-radius: 0.5rem;
-  border: 2px solid #bfe5ff;
+  border: 2px solid #5cbeff86;
   background-color: #005aff;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   transition: 0.15s ease;
@@ -96,7 +96,7 @@ body {
   display: block;
   width: 1.25rem;
   height: 1.25rem;
-  border: 2px solid #bfe5ff;
+  border: 2px solid #4bb7ff6e;
   background-color: #005aff;
   border-radius: 50%;
   top: 0.25rem;
@@ -158,7 +158,7 @@ button.submit-btn{
 }
 
 button.submit-btn:hover{
-    background: #005AFF;
+    background: #ffffff;
     color: #050801;
     box-shadow: 0 0 5px #bfe5ff,
                 0 0 25px #bfe5ff,

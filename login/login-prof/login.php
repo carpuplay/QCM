@@ -67,13 +67,14 @@
                                             <form action="../../php-shit/php-files/verification.php" method="POST">
 												
 												<div class="form-group">
-                                                    
+                                                <input type="hidden" name="prof" value="1">   
                                                         <input type="email" name="email" class="form-style" placeholder="Email"  autocomplete="on">
                                                         <i class="input-icon uil uil-at"></i>
                                                 </div>	
                                                 <div class="form-group mt-2">
                                                     <input type="password" name="password" class="form-style" placeholder="Mot de passe"  autocomplete="on">
                                                     <i class="input-icon uil uil-lock-alt"></i>
+													
                                                 </div>
                                                 <input type="submit" class="btn mt-4" value="Se connecter">
                                             </form>
@@ -102,7 +103,7 @@
 														<?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?> >
 														<i class="input-icon uil uil-lock-alt"></i>
 													</div>
-													<input type ="hidden" name="niveaux" value="none">
+													<input type="hidden"  name="prof" value="1">
 													<input type="submit" class="btn mt-4" value="Créer un compte" >
 												</form>
 				      					</div>
