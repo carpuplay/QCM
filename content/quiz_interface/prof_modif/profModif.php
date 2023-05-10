@@ -23,6 +23,7 @@
         $spe = $_POST["spe"];
         $niveaux = $_POST["niveaux"];
         $image = $_POST["image"];
+        $user = $_POST["user"];
 
         $sql = "INSERT INTO questions (question, r1, r2, r3, r4, pos, type, chapitre, spe, niveaux, image)
                 VALUES ('$question', '$r1', '$r2', '$r3', '$r4', '$pos', '$type', '$chapitre', '$spe', '$niveaux', '$image')";

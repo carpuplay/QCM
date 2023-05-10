@@ -11,33 +11,39 @@
 <html>
 <head>
 	<title>Ajouter une nouvelle question</title>
+	<link rel="stylesheet" href="modifInterface.css">
 </head>
 <body>
 	<h2>Ajouter une nouvelle question</h2>
 
 	<form method="post" action="./profModif.php">
-
+		<input type="hidden" name="user" value="$_SESSION['email']">
 
 		<label for="question">Question:</label>
-		<textarea name="question" rows="5" cols="40" required></textarea><br>
+		<textarea name="question"  required></textarea><br>
 
-		<label for="r1">Answer 1:</label>
+		<label for="r1">Réponse 1:</label>
 		<input type="text" name="r1" required><br>
 
-		<label for="r2">Answer 2:</label>
+		<label for="r2">Réponse 2:</label>
 		<input type="text" name="r2" required><br>
 
-		<label for="r3">Answer 3:</label>
+		<label for="r3">Réponse 3:</label>
 		<input type="text" name="r3"><br>
 
-		<label for="r4">Answer 4:</label>
+		<label for="r4">Réponse 4:</label>
 		<input type="text" name="r4"><br>
 
 		<label for="pos">Correct Answer Position:</label>
 		<input type="number" name="pos" min="1" max="4" required><br>
 
 		<label for="type">Question Type:</label>
-		<input type="text" name="type" required><br>
+		<select name="type" id="typeQuestion" required>
+			<option value="">Choisir type de question</option>
+			<option value="unique">Choix Unique</option>
+			<option value="multiple">Choix Multiple</option>
+			<option value="truefalse">Vrai / Faux</option>
+		</select><br>
 
         <label for="niveaux">Niveaux:</label>
         <select name="niveaux" id="niveauxSelect" required>
@@ -59,17 +65,32 @@
 		</select><br>
 
 		<label for="chapitre">Chapitre:</label>
-        <select name="chapitre" id="chapitreSelect" required>
-            <option value="test">Sélectionnez d'abord le niveau</option>
-        </select><br>
+        <select name="chapitre" id="chapitreSelect" required></select><br>
 
         <label for="image">Image:</label>
-		<input type="text" name="image"><br>
+		<input type="text" name="image" placeholder="URL">
+		<input type="file" name="image">
+		<br>
 
-		<input type="submit" value="Ajouter une question">
+		<input type="submit" value="Ajouter la question">
 	</form>
-
+	<div id="popup" class="popup">
+		<div class="popup-content">
+			<p>This website is currently in beta version. Please be aware that some features may not be fully functional.</p>
+			<button id="popup-close" class="popup-close">OK</button>
+		</div>
+	</div>
 	<script type="text/javascript">
+		window.onload = function() {
+		var popup = document.getElementById("popup");
+		var closeButton = document.getElementById("popup-close");
+
+  		closeButton.onclick = function() {
+    		popup.style.display = "none";
+		}
+		}
+
+		
 		function updateChapitreOptions() {
 			var niveaux = document.getElementById("niveauxSelect").value;
 			var chapitre = document.getElementById("chapitreSelect");
@@ -220,7 +241,7 @@
 					option7.value = "Comportement et stress : vers une vision intégrée de l’organisme";
 					option7.text = "Comportement et stress : vers une vision intégrée de l’organisme";
 					chapitre.appendChild(option7);
-				} else if (spe == maths){
+				} else if (spe == "maths"){
 					var option1 = document.createElement("option");
 					option1.value = "Les suites";
 					option1.text = "Les suites";
@@ -276,7 +297,7 @@
 					option11.text = "Spécialité mathématiques";
 					chapitre.appendChild(option11);
 				
-				} else if (spe == hlp){
+				} else if (spe == "hlp"){
 					var option1 = document.createElement("option");
 					option1.value = "Éducation, transmission et émancipation";
 					option1.text = "Éducation, transmission et émancipation";
@@ -307,7 +328,7 @@
 					option6.text = "L’humain et ses limites";
 					chapitre.appendChild(option6);
 
-				} else if(spe == geopo){
+				} else if(spe == "geopo"){
 					var option1 = document.createElement("option");
 					option1.value = "De nouveaux espaces de conquête";
 					option1.text = "De nouveaux espaces de conquête";
@@ -509,7 +530,7 @@
 					option15.text = "Cerveau et vision : aires visuelles et plasticité cérébrale";
 					chapitre.appendChild(option15);
 				
-				} else if(spe == maths){
+				} else if(spe == "maths"){
 					var option1 = document.createElement("option");
 					option1.value = "Étude de fonctions";
 					option1.text = "Étude de fonctions";
@@ -535,7 +556,7 @@
 					option5.text = "Probabilités et statistiques";
 					chapitre.appendChild(option5);
 
-				}else if (spe == hlp){
+				}else if (spe == "hlp"){
 					var option1 = document.createElement("option");
 					option1.value = "L'art de la parole ";
 					option1.text = "L'art de la parole ";
@@ -566,7 +587,7 @@
 					option6.text = "L'homme et l'animal";
 					chapitre.appendChild(option6);
 
-				} else if (spe == geopo){
+				} else if (spe == "geopo"){
 					var option1 = document.createElement("option");
 					option1.value = "Comprendre un régime politique : la démocratie";
 					option1.text = "Comprendre un régime politique : la démocratie";
@@ -605,7 +626,7 @@
 				document.getElementById("chapitreSelect").selectedIndex = 0; // reset to default 
 			} else if (spe == "ses" && (selectedOption == "chapitre1" || selectedOption == "chapitre2")) {
 				document.getElementById("chapitreSelect").selectedIndex = 0; // reset to default
-			} else if (spe == "hlp" && (selectedOption == "option" || selectedOption == "option2")){
+			} else if (spe == "hlp" && (selectedOption == "chapitre5" || selectedOption == "chapitre6")){
 				document.getElementById("chapitreSelect").selectedIndex = 0; // reset to default
 			}
 

@@ -73,7 +73,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             
                             // Redirect user to welcome page
                             if($prof == 1){
-                                header("location: ../../login/spe-select/spe-select-prof.php");
+                                header("location: ../../content/quiz_interface/prof_modif/modifInterface.php");
                                 $_SESSION["email"] = $email;
                             }elseif($prof == 0){
                                 header("location: ../../login/spe-select/spe-select.php");
