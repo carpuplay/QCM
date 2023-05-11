@@ -141,6 +141,7 @@ if (!isset($_SESSION['email'])) {
 
     for (var i = 0; i < checkboxList.length; i++) {
       checkboxList[i].addEventListener("click", function(event) {
+        alert(checkboxList[i].checked);
         for (var j = 0; j < checkboxList.length; j++) {
           if (checkboxList[j].checked) {
           checkedCount = checkedCount + 1;
