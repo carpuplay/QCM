@@ -116,12 +116,37 @@ if (!isset($_SESSION['email'])) {
 		</div>
 	</form>
 
-</body>
-</html>
-       <!-- Redirect to control panel -->
+  <script>
+    const butt = document.getElementById('button-submit')
 
-<!-- partial -->
-  <script  src="./spe-select.js"></script>
+    const checkbox1 = document.getElementById('ses');
+    const checkbox2 = document.getElementById('maths');
+    const checkbox3 = document.getElementById('physique');
+    const checkbox4 = document.getElementById('hlp');
+    const checkbox5 = document.getElementById('nsi');
+    const checkbox6 = document.getElementById('geopo');
+    const checkbox7 = document.getElementById('svt');
+    const checkbox8 = document.getElementById('anglais');
+
+
+    var checkedCount2 = 0;
+    var checkboxList = [checkbox1, checkbox2, checkbox3,checkbox4, checkbox5, checkbox6, checkbox7, checkbox8];
+
+    butt.addEventListener("click", function(event){
+      for (var k = 0; k < checkboxList.length; k++) {
+          if (checkboxList[k].checked) {
+          checkedCount2 = checkedCount2 + 1;
+        }
+        }
+        
+        if (checkedCount2 == 0) {
+        event.preventDefault();
+        alert("Vous devez choisir au moins une spécialité avant de continuer.");
+        }
+        checkedCount2 = 0;
+    });
+
+  </script>
 
 </body>
 </html>
