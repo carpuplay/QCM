@@ -4,7 +4,6 @@ if (!isset($_SESSION['email'])) {
     header('Location: ../../login/login-eleve/login.php');
     exit();
 }
-$niveaux = $_SESSION['niveaux'];
 ?>
 
 <!DOCTYPE html>
