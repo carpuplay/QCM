@@ -17,7 +17,7 @@ form {
     background-position: center;
     background-repeat: no-repeat;
     background-size: 300%;
-    padding: 20px;
+    padding: 30px;
     border-radius: 10px;
     box-shadow: 0px 0px 30px 0px rgba(255, 255, 255, 0.144);
 
@@ -47,17 +47,11 @@ form select {
     box-sizing: border-box;
 }
   
-form input[type="number"] {
-    width: 50px;
-    background-color: #292929;
-    color: #8b8a8a;
-}
-  
 form select {
     cursor: pointer;
     color: #8b8a8a;
 }
-input[type="file"]{
+input[type="file"]{    /* check this is not beeing displayed */ 
     display: none;
 
 }
@@ -133,6 +127,7 @@ select:hover::after {
   
 option {
     font-weight: normal;
+    font-family: "Arial", sans-serif;
     background-color: #4d4d4d;
     color: #000;
 }

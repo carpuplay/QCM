@@ -18,15 +18,13 @@
 </head>
 
 <?php
-session_start(); //esto sirve para destruir ñla info que queda del user si vuelve a la pagina de inicio (log in)
+session_start(); // do not errase!!!
 if (isset($_SESSION["message"]))
 {
     print("<h1>".$_SESSION["message"]."</h1>");
 
 }
-unset($_SESSION['identifiant']);
-unset($_SESSION['droits']);
-unset($_SESSION["message"]);
+
 session_unset();
 ?>
 <!-- partial:landing.partial.html -->
@@ -76,7 +74,7 @@ session_unset();
 			<div class="row full-height justify-content-center">
 				<div class="col-12 text-center align-self-center py-5">
 					<div class="section pb-5 pt-5 pt-sm-2 text-center">
-						<h6 class="mb-0 pb-3" for="reg-log"><span>Se connecter </span><span>Créer un compte</span></h6>  <!--  check this -->
+						<h6 class="mb-0 pb-3"><span>Se connecter </span><span>Créer un compte</span></h6>
 			          	<input class="checkbox" type="checkbox" id="reg-log" name="reg-log"/>
 			          	<label for="reg-log"></label>
 						<div class="card-3d-wrap mx-auto">
@@ -88,8 +86,9 @@ session_unset();
                                             <form action="../../php-shit/php-files/verification.php" method="POST">
 												
 												<div class="form-group">
-                                                    <input type="email" name="email" class="form-style" placeholder="Email"  autocomplete="on">
-                                                    <i class="input-icon uil uil-at"></i>
+                                                    
+                                                        <input type="email" name="email" class="form-style" placeholder="Email"  autocomplete="on">
+                                                        <i class="input-icon uil uil-at"></i>
                                                 </div>	
                                                 <div class="form-group mt-2">
                                                     <input type="password" name="password" class="form-style" placeholder="Mot de passe"  autocomplete="on">

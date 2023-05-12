@@ -19,24 +19,6 @@
 	<form method="post" action="./profModif.php">
 		<input type="hidden" name="user" value="$_SESSION['email']">
 
-		<label for="question">Question:</label>
-		<textarea name="question"  required></textarea><br>
-
-		<label for="r1">Réponse 1:</label>
-		<input type="text" name="r1" required><br>
-
-		<label for="r2">Réponse 2:</label>
-		<input type="text" name="r2" required><br>
-
-		<label for="r3">Réponse 3:</label>
-		<input type="text" name="r3"><br>
-
-		<label for="r4">Réponse 4:</label>
-		<input type="text" name="r4"><br>
-
-		<label for="pos">Correct Answer Position:</label>
-		<input type="number" name="pos" min="1" max="4" required><br>
-
 		<label for="type">Question Type:</label>
 		<select name="type" id="typeQuestion" required>
 			<option value="">Choisir type de question</option>
@@ -44,6 +26,23 @@
 			<option value="multiple">Choix Multiple</option>
 			<option value="truefalse">Vrai / Faux</option>
 		</select><br>
+
+		<label for="question">Question:</label>
+		<textarea name="question"  required></textarea><br>
+
+		<label for="r1">Réponse 1:</label>
+		<input type="checkbox" name="r[]" value="r1"><input type="text" name="r1" required><br>
+
+		<label for="r2">Réponse 2:</label>
+		<input type="checkbox" name="r[]" value="r2"><input type="text" name="r2" required><br>
+
+		<label for="r3">Réponse 3:</label>
+		<input type="checkbox" name="r[]" value="r3"><input type="text" name="r3"><br>
+
+		<label for="r4">Réponse 4:</label>
+		<input type="checkbox" name="r[]" value="r4"><input type="text" name="r4"><br>
+
+
 
         <label for="niveaux">Niveaux:</label>
         <select name="niveaux" id="niveauxSelect" required>
