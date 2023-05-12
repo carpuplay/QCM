@@ -13,7 +13,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: orange;
+  background-color: #005aff;
 }
 
 .submit {
@@ -28,7 +28,7 @@ body {
 button.submit-btn{
   padding: 10px 20px;
   background-color: #050801;
-  color: orange;
+  color: white;
   font-weight: 600;
   font-family: "Termina", sans-serif;
   border: none;
