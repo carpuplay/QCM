@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" >
 <head>
@@ -25,7 +24,9 @@ if (isset($_SESSION["message"]))
     print("<h1>".$_SESSION["message"]."</h1>");
 
 }
-
+unset($_SESSION['identifiant']);
+unset($_SESSION['droits']);
+unset($_SESSION["message"]);
 session_unset();
 ?>
 <!-- partial:landing.partial.html -->
