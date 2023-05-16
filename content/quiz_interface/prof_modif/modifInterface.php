@@ -19,24 +19,6 @@
 	<form method="post" action="./profModif.php">
 		<input type="hidden" name="user" value="$_SESSION['email']">
 
-		<label for="question">Question:</label>
-		<textarea name="question"  required></textarea><br>
-
-		<label for="r1">Réponse 1:</label>
-		<input type="text" name="r1" required><br>
-
-		<label for="r2">Réponse 2:</label>
-		<input type="text" name="r2" required><br>
-
-		<label for="r3">Réponse 3:</label>
-		<input type="text" name="r3"><br>
-
-		<label for="r4">Réponse 4:</label>
-		<input type="text" name="r4"><br>
-
-		<label for="pos">Correct Answer Position:</label>
-		<input type="number" name="pos" min="1" max="4" required><br>
-
 		<label for="type">Question Type:</label>
 		<select name="type" id="typeQuestion" required>
 			<option value="">Choisir type de question</option>
@@ -44,6 +26,27 @@
 			<option value="multiple">Choix Multiple</option>
 			<option value="truefalse">Vrai / Faux</option>
 		</select><br>
+
+		<label for="question">Question:</label>
+		<textarea name="question"  required></textarea><br>
+
+		<label for="r1">Réponse 1:</label>
+		<input type="text" name="r1" required>
+		<br>
+
+		<label for="r2">Réponse 2:</label>
+		<input type="text" name="r2" required>
+		<br>
+
+		<label for="r3">Réponse 3:</label>
+		<input type="text" name="r3">
+		<br>
+
+		<label for="r4">Réponse 4:</label>
+		<input type="text" name="r4">
+		<br>
+
+
 
         <label for="niveaux">Niveaux:</label>
         <select name="niveaux" id="niveauxSelect" required>
@@ -81,15 +84,62 @@
 		</div>
 	</div>
 	<script type="text/javascript">
-		window.onload = function() {
-		var popup = document.getElementById("popup");
-		var closeButton = document.getElementById("popup-close");
 
-  		closeButton.onclick = function() {
-    		popup.style.display = "none";
+		const questionTypeSelect = document.getElementById('typeQuestion');
+		const r1Input = document.getElementById('r1');
+		const r2Input = document.getElementById('r2');
+		const r3Input = document.getElementById('r3');
+		const r4Input = document.getElementById('r4');
+
+		// Function to handle question type change
+		function handleQuestionTypeChange() {
+		const selectedType = questionTypeSelect.value;
+		if (selectedType === 'unique') {
+			r1Input.type = 'radio';
+			r2Input.type = 'radio';
+			r3Input.type = 'radio';
+			r4Input.type = 'radio';
+			r1Input.style.display = 'block';
+			r2Input.style.display = 'block';
+			r3Input.style.display = 'block';
+			r4Input.style.display = 'block';
+		} else if (selectedType === 'multiple') {
+			r1Input.type = 'checkbox';
+			r2Input.type = 'checkbox';
+			r3Input.type = 'checkbox';
+			r4Input.type = 'checkbox';
+			r1Input.style.display = 'block';
+			r2Input.style.display = 'block';
+			r3Input.style.display = 'block';
+			r4Input.style.display = 'block';
+		} else if (selectedType === 'truefalse') {
+			r1Input.type = 'radio';
+			r2Input.type = 'radio';
+			r1Input.value = 'true';
+			r1Input.disabled = true;
+			r2Input.value = 'false';
+			r2Input.disabled = true;
+			r3Input.style.display = 'none';
+			r4Input.style.display = 'none';
+		} else {
+			r1Input.style.display = 'none';
+			r2Input.style.display = 'none';
+			r3Input.style.display = 'none';
+			r4Input.style.display = 'none';
 		}
 		}
 
+// Attach the event listener
+questionTypeSelect.addEventListener('change', handleQuestionTypeChange);
+
+// Call the function initially to reflect the default question type
+handleQuestionTypeChange();
+
+		// Attach the event listener
+		questionTypeSelect.addEventListener('change', handleQuestionTypeChange);
+
+		// Call the function initially to reflect the default question type
+		handleQuestionTypeChange();
 		
 		function updateChapitreOptions() {
 			var niveaux = document.getElementById("niveauxSelect").value;
