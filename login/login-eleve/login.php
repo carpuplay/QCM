@@ -19,13 +19,7 @@
 </head>
 
 <?php
-session_start(); //esto sirve para destruir ñla info que queda del user si vuelve a la pagina de inicio (log in)
-if (isset($_SESSION["message"]))
-{
-    print("<h1>".$_SESSION["message"]."</h1>");
-
-}
-
+session_start(); //DO NOT ERRASE !!!
 session_unset();
 ?>
 <!-- partial:landing.partial.html -->
