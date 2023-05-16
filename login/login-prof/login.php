@@ -8,6 +8,7 @@
 </head>
 
 <?php
+session_start(); //do not errase!!!
 session_unset();
 ?>
 
