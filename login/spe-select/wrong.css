@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Termina", sans-serif;
+  font-weight: 600;
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: orange;
+}
+
+.submit {
+  position: absolute;
+  top: 70vh;
+  left: 45vw;
+  z-index: 1;
+  cursor: pointer;
+  
+}
+
+button.submit-btn{
+  padding: 10px 20px;
+  background-color: #050801;
+  color: orange;
+  font-weight: 600;
+  font-family: "Termina", sans-serif;
+  border: none;
+  border-radius: 5px;
+  letter-spacing: 0.2vw;
+  font-size: 14px;
+  overflow: hidden;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+button.submit-btn:hover{
+    background: white;
+    color: #050801;
+    box-shadow: 0 0 5px white,
+                0 0 25px white,
+                0 0 50px white,
+                0 0 200px white;
+     
+}
