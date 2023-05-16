@@ -19,11 +19,6 @@
 
 <?php
 session_start(); // do not errase!!!
-if (isset($_SESSION["message"]))
-{
-    print("<h1>".$_SESSION["message"]."</h1>");
-
-}
 
 session_unset();
 ?>
