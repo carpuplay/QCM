@@ -1,2 +1,2 @@
-# ACTUALIZAD LA BASE DE DATOS!!!
-La ultima version de la base de datos esta incluida en el release.
+# QCM
+Page web des eleves de NSI, il s'agit d'une web de revisions.

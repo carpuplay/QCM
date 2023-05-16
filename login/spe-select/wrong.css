@@ -7,13 +7,12 @@
 
 body {
   font-family: "Termina", sans-serif;
-  font-weight: 600;
   line-height: 1.5;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: orange;
+  background-color: #000000;
 }
 
 .submit {
@@ -26,26 +25,26 @@ body {
 }
 
 button.submit-btn{
-  padding: 10px 20px;
+  padding: 10px 10px;
   background-color: #050801;
   color: orange;
-  font-weight: 600;
+  font-weight: bold;
   font-family: "Termina", sans-serif;
   border: none;
   border-radius: 5px;
   letter-spacing: 0.2vw;
-  font-size: 14px;
+  font-size: 12px;
   overflow: hidden;
   transition: 0.5s;
   cursor: pointer;
 }
 
 button.submit-btn:hover{
-    background: white;
+    background: orange;
     color: #050801;
-    box-shadow: 0 0 5px white,
-                0 0 25px white,
-                0 0 50px white,
-                0 0 200px white;
+    box-shadow: 0 0 5px orange,
+                0 0 25px orange,
+                0 0 50px orange,
+                0 0 200px orange;
      
 }
