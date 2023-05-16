@@ -150,8 +150,7 @@ $niveaux = $_SESSION['niveaux'];
         
         if (checkedCount > maxCheckboxes) {
         event.preventDefault();
-        popupWindow('wrong.php','Trop de spécialités', window, 400, 300);
-        location.reload();
+        popupWindow('wrong.html','Trop de spécialités', window, 400, 300);
         }
         checkedCount = 0;
       });
@@ -166,8 +165,7 @@ $niveaux = $_SESSION['niveaux'];
         
         if (checkedCount2 != maxCheckboxes) {
         event.preventDefault();
-        popupWindow('wrong2.php','Pas assez de spécialités', window, 400, 300);
-        location.reload();
+        popupWindow('wrong2.html','Pas assez de spécialités', window, 400, 300);
         }
         checkedCount2 = 0;
     });
