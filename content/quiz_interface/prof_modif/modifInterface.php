@@ -136,7 +136,7 @@
 		<input type="text" name="image" placeholder="URL">
 		<input type="file" name="image">
 		<br>
-
+		<input type="hidden" name="user" value="<?php echo $userId; ?>">
 		<input type="submit" value="Ajouter la question">
 	</form>
 
