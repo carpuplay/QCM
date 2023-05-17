@@ -35,8 +35,8 @@
         }
 
         // SQL query
-        $sql = "INSERT INTO questions (question, r1, r2, r3, r4, type, chapitre, spe, niveaux, image, pos)
-                VALUES ('$question', '$r1', '$r2', '$r3', '$r4', '$type', '$chapitre', '$spe', '$niveaux', '$image', '$pos')";
+        $sql = "INSERT INTO questions (question, r1, r2, r3, r4, type, chapitre, spe, niveaux, image, pos, user)
+                VALUES ('$question', '$r1', '$r2', '$r3', '$r4', '$type', '$chapitre', '$spe', '$niveaux', '$image', '$pos', '$user')";
 
         if (mysqli_query($conn, $sql)) {
             echo "Question added successfully.";
