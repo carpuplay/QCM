@@ -2,4 +2,6 @@
 El ultimo release incluye la base de datos test.sql actualizada.
 - descargar --> importar a sql !!!
 
-Ningun nombre cambia 
+ULTIMA VERSIÓN v0.2.7-2
+
+!! Los archivos Ian en ./quiz_inteface no estan listo.
