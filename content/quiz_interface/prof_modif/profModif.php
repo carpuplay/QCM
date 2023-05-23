@@ -28,10 +28,10 @@
 
         // Generate the value for the 'pos' column based on selected checkboxes
         foreach($_POST['r'] as $value){
-            if($value == "r1") $pos .= "1000";
-            if($value == "r2") $pos .= "0100";
-            if($value == "r3") $pos .= "0010";
-            if($value == "r4") $pos .= "0001";
+            if($value == "r1") $pos .= "1";
+            if($value == "r2") $pos .= "2";
+            if($value == "r3") $pos .= "3";
+            if($value == "r4") $pos .= "4";
         }
 
         // SQL query
