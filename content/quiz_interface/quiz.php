@@ -14,7 +14,12 @@ include_once("../../php-shit/php-files/config.php");
 </head>
 <body>
     <header>
-        <h1>Interfaz_qcm</h1>
+        <h1 onClick="" id="redirectMain" >Interfaz_qcm</h1>
+        <script type="text/javascript">
+            document.getElementById("redirectMain").onclick = function () {
+                location.href = "../../index.html";
+                };
+        </script>
     </header>
     <div class="slider-thumb"></div>
     <div class="big">
@@ -36,7 +41,7 @@ include_once("../../php-shit/php-files/config.php");
             if ($questionData) {
                 echo $questionData['question'];
             } else {
-                echo "No questions found.";
+                echo "Aucune question retrouvée";
             }
             ?>
         </h3>
@@ -60,32 +65,32 @@ include_once("../../php-shit/php-files/config.php");
                 // Output the question and answer options
                 echo '<ul>';
                 if (!empty($questionData['r1'])) {
-                    echo '<li>';
-                    echo '<input type="radio" id="option1" name="selector" value="1">';
-                    echo '<label for="option1" class="' . (($correctPosition == 1) ? 'correct' : '') . '">' . $questionData['r1'] . '</label>';
-                    echo '<div class="check"></div>';
-                    echo '</li>';
+                echo '<li>';
+                echo '<input type="radio" id="option1" name="selector" value="1">';
+                echo '<label for="option1" class="' . (($correctPosition == 1) ? 'correct' : '') . '">' . $questionData['r1'] . '</label>';
+                echo '<div class="check"></div>';
+                echo '</li>';
                 }
                 if (!empty($questionData['r2'])) {
-                    echo '<li>';
-                    echo '<input type="radio" id="option2" name="selector" value="2">';
-                    echo '<label for="option2" class="' . (($correctPosition == 2) ? 'correct' : '') . '">' . $questionData['r2'] . '</label>';
-                    echo '<div class="check"><div class="inside"></div></div>';
-                    echo '</li>';
+                echo '<li>';
+                echo '<input type="radio" id="option2" name="selector" value="2">';
+                echo '<label for="option2" class="' . (($correctPosition == 2) ? 'correct' : '') . '">' . $questionData['r2'] . '</label>';
+                echo '<div class="check"><div class="inside"></div></div>';
+                echo '</li>';
                 }
                 if (!empty($questionData['r3'])) {
-                    echo '<li>';
-                    echo '<input type="radio" id="option3" name="selector" value="3">';
-                    echo '<label for="option3" class="' . (($correctPosition == 3) ? 'correct' : '') . '">' . $questionData['r3'] . '</label>';
-                    echo '<div class="check"><div class="inside"></div></div>';
-                    echo '</li>';
+                echo '<li>';
+                echo '<input type="radio" id="option3" name="selector" value="3">';
+                echo '<label for="option3" class="' . (($correctPosition == 3) ? 'correct' : '') . '">' . $questionData['r3'] . '</label>';
+                echo '<div class="check"><div class="inside"></div></div>';
+                echo '</li>';
                 }
                 if (!empty($questionData['r4'])) {
-                    echo '<li>';
-                    echo '<input type="radio" id="option4" name="selector" value="4">';
-                    echo '<label for="option4" class="' . (($correctPosition == 4) ? 'correct' : '') . '">' . $questionData['r4'] . '</label>';
-                    echo '<div class="check"><div class="inside"></div></div>';
-                    echo '</li>';
+                echo '<li>';
+                echo '<input type="radio" id="option4" name="selector" value="4">';
+                echo '<label for="option4" class="' . (($correctPosition == 4) ? 'correct' : '') . '">' . $questionData['r4'] . '</label>';
+                echo '<div class="check"><div class="inside"></div></div>';
+                echo '</li>';
                 }
                 echo '</ul>';
 
@@ -94,21 +99,16 @@ include_once("../../php-shit/php-files/config.php");
                 echo '<button id="suivant-btn" class="login-btn hidden" onclick="nextQuestion()">Question Suivante</button>';
             }
             ?>
-        </div>
+            </div>
+
 
     </div>
     <script>
         function verifyAnswer() {
             var selectedAnswer = document.querySelector('input[name="selector"]:checked');
-    if (selectedAnswer) {
-        var selectedPosition = selectedAnswer.value;
-        var correctPosition = "<?php echo $correctPosition; ?>"; // Add this line to retrieve the correct position
-
-        var correctAnswer = document.querySelector('input[value="' + correctPosition + '"]')?.nextElementSibling;
-
-                // Convert the selected position and correct position to patterns
-                var selectedPattern = positionToPattern(selectedPosition);
-                var correctPattern = positionToPattern(correctPosition);
+            if (selectedAnswer) {
+                var selectedPosition = parseInt(selectedAnswer.value); // Parse the selected position as an integer
+                var correctPosition = parseInt("<?php echo $correctPosition; ?>"); // Parse the correct position as an integer
 
                 // Disable further selection
                 var answerInputs = document.querySelectorAll('input[name="selector"]');
@@ -123,15 +123,12 @@ include_once("../../php-shit/php-files/config.php");
                 suivantBtn.classList.remove('hidden');
 
                 // Check if the selected answer is correct
-                if (selectedPattern === correctPattern) {
+                if (selectedPosition === correctPosition) {
                     selectedAnswer.nextElementSibling?.classList.add('correct');
                     selectedAnswer.nextElementSibling && (selectedAnswer.nextElementSibling.style.color = 'green');
                 } else {
                     selectedAnswer.nextElementSibling?.classList.add('incorrect');
                     selectedAnswer.nextElementSibling && (selectedAnswer.nextElementSibling.style.color = 'red');
-                    var correctAnswer = document.querySelector('input[value="' + correctPosition + '"]')?.nextElementSibling;
-                    correctAnswer?.classList.add('correct');
-                    correctAnswer && (correctAnswer.style.color = 'green');
                 }
             } else {
                 alert("Please select an answer.");
@@ -141,32 +138,9 @@ include_once("../../php-shit/php-files/config.php");
         function nextQuestion() {
             // Code to navigate to the next question or perform any desired action
             // For example, you can redirect to a new page or reload the current page
-            // window.location.href = "next_question.php";  // Replace with your logic
-            window.location.reload(); // Reload the current page as an example
+            window.location.reload(); // Reload the current page
         }
-
-        function positionToPattern(position) {
-        // Convert position to pattern
-            var pattern = "0000";
-
-            switch (position) {
-                case "1":
-                    pattern = "1000";
-                    break;
-                case "2":
-                    pattern = "0100";
-                    break;
-                case "3":
-                    pattern = "0010";
-                    break;
-                case "4":
-                    pattern = "0001";
-                    break;
-            }
-
-            return pattern;
-        }
-
     </script>
+
 </body>
 </html>
