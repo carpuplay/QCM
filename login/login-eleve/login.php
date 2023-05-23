@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" >
 <head>
@@ -19,7 +18,15 @@
 </head>
 
 <?php
-session_start(); //DO NOT ERRASE !!!
+session_start(); //esto sirve para destruir ñla info que queda del user si vuelve a la pagina de inicio (log in)
+if (isset($_SESSION["message"]))
+{
+    print("<h1>".$_SESSION["message"]."</h1>");
+
+}
+unset($_SESSION['identifiant']);
+unset($_SESSION['droits']);
+unset($_SESSION["message"]);
 session_unset();
 ?>
 <!-- partial:landing.partial.html -->
@@ -69,7 +76,7 @@ session_unset();
 			<div class="row full-height justify-content-center">
 				<div class="col-12 text-center align-self-center py-5">
 					<div class="section pb-5 pt-5 pt-sm-2 text-center">
-						<h6 class="mb-0 pb-3"><span id='SC'>Se connecter </span><span id='CC'>Créer un compte</span></h6>
+						<h6 class="mb-0 pb-3"><span>Se connecter </span><span>Créer un compte</span></h6>
 			          	<input class="checkbox" type="checkbox" id="reg-log" name="reg-log"/>
 			          	<label for="reg-log"></label>
 						<div class="card-3d-wrap mx-auto">
@@ -138,23 +145,7 @@ session_unset();
 	</div>
 <!-- partial -->
 	<div class="slider-thumb"></div>
-  	<script>
-		var SC = document.getElementById('SC');
-		var CC = document.getElementById('CC');
-		var slider = document.getElementById('reg-log');
-
-		SC.addEventListener('click', function() {
-			if (slider.checked == true) {
-				slider.checked = false;
-			}
-        });
-
-		CC.addEventListener('click', function() {
-            if (!(slider.checked == true)) {
-                slider.checked = true;
-            }
-        });
-	</script>
+  	<script  src="./login.js"></script>
 
 </body>
 </html>

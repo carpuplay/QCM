@@ -1,4 +1,4 @@
-
+@import url('https://tonts.googleapis.com/css27?tamily=Balsamiq+Sans:wght@400;7006d1splay=swap');
 
 *{
     box-sizing: border-box;
@@ -12,34 +12,18 @@ body {
     min-height: 100vh;
 }
 
-.correct {
-  color: green;
-}
-
-.incorrect {
-  color: red;
-}
-
 .question-title{
-  position:absolute;
-  top: 17vh;
-  left: 50vw;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  font-size: 32px;
-  font-weight: 800;
-  color: rgb(255, 255, 255);
-  text-align: center;
-  justify-content: center;
-  justify-items: center;
-  display: inline-block;
+    position:absolute;
+    top: 17vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    font-size: 32px;
+    font-weight: 800;
+    color: black;
 
 }
 
-/* Add a new CSS rule to hide the "Question Suivante" button initially */
-.hidden {
-  display: none;
-}
 
 .slider-thumb::before {     /*la bule orange   - à eliminer pour la version mobile*/
     position: absolute;
@@ -131,7 +115,7 @@ ul li:hover label{
 }
 
 ul li .check{
-  display: inline-block;
+  display: block;
   position: absolute;
   border: 5px solid #AAAAAA;
   border-radius: 100%;
@@ -149,7 +133,7 @@ ul li:hover .check {
 }
 
 ul li .check::before {
-  display: inline-block;
+  display: block;
   position: absolute;
 	content: '';
   border-radius: 100%;
@@ -161,15 +145,15 @@ ul li .check::before {
 }
 
 input[type=radio]:checked ~ .check {
-  border: 0px solid orange;
+  border: 0px solid #0DFF92;
 }
 
 input[type=radio]:checked ~ .check::before{
-  background: orange;
+  background: #0DFF92;
 }
 
 input[type=radio]:checked ~ label{
-  color: orange;
+  color: #0DFF92;
 }
 
 /* bouton */

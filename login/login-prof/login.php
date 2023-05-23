@@ -7,10 +7,6 @@
 <link rel='stylesheet' href='https://unicons.iconscout.com/release/v2.1.9/css/unicons.css'><link rel="stylesheet" href="./login.css">  
 </head>
 
-<?php
-session_start(); //do not errase!!!
-session_unset();
-?>
 
 <!-- partial:landing.partial.html -->
 <nav class="full">
@@ -59,7 +55,7 @@ session_unset();
 			<div class="row full-height justify-content-center">
 				<div class="col-12 text-center align-self-center py-5">
 					<div class="section pb-5 pt-5 pt-sm-2 text-center">
-						<h6 class="mb-0 pb-3"><span id='SC'>Se connecter </span><span id='CC'>Créer un compte</span></h6>
+						<h6 class="mb-0 pb-3"><span>Se connecter </span><span>Créer un compte</span></h6>
 			          	<input class="checkbox" type="checkbox" id="reg-log" name="reg-log"/>
 			          	<label for="reg-log"></label>
 						<div class="card-3d-wrap mx-auto">
@@ -71,14 +67,13 @@ session_unset();
                                             <form action="../../php-shit/php-files/verification.php" method="POST">
 												
 												<div class="form-group">
-                                                <input type="hidden" name="prof" value="1">   
+                                                    
                                                         <input type="email" name="email" class="form-style" placeholder="Email"  autocomplete="on">
                                                         <i class="input-icon uil uil-at"></i>
                                                 </div>	
                                                 <div class="form-group mt-2">
                                                     <input type="password" name="password" class="form-style" placeholder="Mot de passe"  autocomplete="on">
                                                     <i class="input-icon uil uil-lock-alt"></i>
-													
                                                 </div>
                                                 <input type="submit" class="btn mt-4" value="Se connecter">
                                             </form>
@@ -107,7 +102,7 @@ session_unset();
 														<?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?> >
 														<i class="input-icon uil uil-lock-alt"></i>
 													</div>
-													<input type="hidden"  name="prof" value="1">
+													<input type ="hidden" name="niveaux" value="none">
 													<input type="submit" class="btn mt-4" value="Créer un compte" >
 												</form>
 				      					</div>
@@ -122,23 +117,7 @@ session_unset();
 	</div>
 <!-- partial -->
 	<div class="slider-thumb"></div>
-	<script>
-		var SC = document.getElementById('SC');
-		var CC = document.getElementById('CC');
-		var slider = document.getElementById('reg-log');
-
-		SC.addEventListener('click', function() {
-			if (slider.checked == true) {
-				slider.checked = false;
-			}
-        });
-
-		CC.addEventListener('click', function() {
-            if (!(slider.checked == true)) {
-                slider.checked = true;
-            }
-        });
-	</script>
+  	<script  src="./login.js"></script>
 
 </body>
 </html>

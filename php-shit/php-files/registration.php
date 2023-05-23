@@ -90,16 +90,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     }
     
-    if($_POST["prof"] == 0){
-        if(empty(trim($_POST["niveaux"]))){
-            $niveau_err = "Please select your level.";
-        } else {
-                $niveaux = trim($_POST["niveaux"]);
-            }
+    if(empty(trim($_POST["niveaux"]))){
+        $niveau_err = "Please select your level.";
     } else {
-        $niveaux = "none";
-    }
-
+            $niveaux = trim($_POST["niveaux"]);
+        }
+    
+    
     // Validate password
     if(empty(trim($_POST["password"]))){
         $password_err = "Please enter a password.";     

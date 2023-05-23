@@ -1,0 +1,57 @@
+@import url('https://tonts.googleapis.com/css27?tamily=Balsamiq+Sans:wght@400;7006d1splay=swap');
+
+*{
+    box-sizing: border-box;
+    font-family: 'Balsamic Sans';
+}
+
+header {
+    text-align: center;
+    background: #000;
+    color: #fff;
+    padding: 10px 0;
+}
+
+.container{
+    max-width: 700px;
+    margin: auto; 
+    padding: 20px;
+}
+
+section{
+    border: 2px solid #5624d0; border-radius: 7px;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+label{
+    display: block;
+    padding: 7px;
+    border-radius: 7px;
+    cursor: pointer;
+    border: 1px dashed #ccc;
+    margin-bottom: 3px;
+}
+
+label:hover{
+    background: #cec0fc;
+}
+
+button{
+    width: 80%;
+    display: block;
+    margin: auto;
+    padding: 10px;
+    background-color: #76d7c8;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+}
+button:hover{
+    background: #000;
+    color: #fff;
+}
+h2{
+    text-align: 30px;
+    color: darkred;
+}
