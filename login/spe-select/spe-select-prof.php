@@ -20,11 +20,11 @@ if (!isset($_SESSION['email'])) {
 <body>
 
   <form action="../../php-shit/php-files/update-specialites.php" method="POST">
-    <fieldset class="checkbox-group">
-      <legend class="checkbox-group-legend">Choisissez Les Spécialités Que Vous Enseignez</legend>
+  <fieldset class="checkbox-group">
+      <legend class="checkbox-group-legend">Choisis Tes Spécialités</legend>
       <div class="checkbox">
         <label class="checkbox-wrapper">
-          <input type="checkbox" name="ses" class="checkbox-input" value="ses"/>
+          <input type="checkbox" class="checkbox-input" name="ses" id="ses" value="ses"/>
           <span class="checkbox-tile">
             <span class="checkbox-icon">
               <!-- -->
@@ -35,7 +35,7 @@ if (!isset($_SESSION['email'])) {
       </div>
       <div class="checkbox">
         <label class="checkbox-wrapper">
-          <input type="checkbox" class="checkbox-input" name="maths" value="maths"/>
+          <input type="checkbox" class="checkbox-input" name="maths" id="maths" value="maths"/>
           <span class="checkbox-tile">
             <span class="checkbox-icon">
               <!-- -->
@@ -46,7 +46,7 @@ if (!isset($_SESSION['email'])) {
       </div>
       <div class="checkbox">
         <label class="checkbox-wrapper">
-          <input type="checkbox" class="checkbox-input" name='physique' value='physique'/>
+          <input type="checkbox" class="checkbox-input" name='physique' id="physique" value='physique'/>
           <span class="checkbox-tile">
             <span class="checkbox-icon">
               <!-- -->
@@ -57,7 +57,7 @@ if (!isset($_SESSION['email'])) {
       </div>
       <div class="checkbox">
         <label class="checkbox-wrapper">
-          <input type="checkbox" class="checkbox-input" name="hlp" value="hlp"/>
+          <input type="checkbox" class="checkbox-input" name="hlp" id="hlp" value="hlp"/>
           <span class="checkbox-tile">
             <span class="checkbox-icon">
               <!-- -->
@@ -68,7 +68,7 @@ if (!isset($_SESSION['email'])) {
       </div>
       <div class="checkbox">
         <label class="checkbox-wrapper">
-          <input type="checkbox" class="checkbox-input" name="nsi" value="nsi" />
+          <input type="checkbox" class="checkbox-input" name="nsi" id="nsi" value="nsi" />
           <span class="checkbox-tile">
             <span class="checkbox-icon">
               <!-- -->
@@ -79,7 +79,7 @@ if (!isset($_SESSION['email'])) {
       </div>
       <div class="checkbox">
         <label class="checkbox-wrapper">
-          <input type="checkbox" class="checkbox-input" name="geopo" value="geopo"/>
+          <input type="checkbox" class="checkbox-input" name="geopo" id="geopo" value="geopo"/>
           <span class="checkbox-tile">
             <span class="checkbox-icon">
               <!-- -->
@@ -90,7 +90,7 @@ if (!isset($_SESSION['email'])) {
       </div>
       <div class="checkbox">
         <label class="checkbox-wrapper">
-          <input type="checkbox" class="checkbox-input" name="svt" value="svt"/>
+          <input type="checkbox" class="checkbox-input" name="svt" id="svt" value="svt"/>
 		  <span class="checkbox-tile">
             <span class="checkbox-icon">
               <!-- -->
@@ -101,7 +101,7 @@ if (!isset($_SESSION['email'])) {
 			</div>
 		<div class="checkbox">
 			<label class="checkbox-wrapper">
-				<input type="checkbox" class="checkbox-input" name="anglais" value='anglais'/>
+				<input type="checkbox" class="checkbox-input" name="anglais" id="anglais" value='anglais'/>
 				<span class="checkbox-tile">
 					<span class="checkbox-icon">
 						<!-- -->
@@ -109,11 +109,11 @@ if (!isset($_SESSION['email'])) {
 					<span class="checkbox-label">Anglais</span>
 				</span>
 				</label>  
-			</div>			
+			</div>		
 		</fieldset>
 		<div class="submit">
-			<button type='submit' id="button-submit" class="submit-btn" formaction="../../php-shit/php-files/update-specialites.php">Submit</button>
-		</div>
+			<button id="button-submit" class="submit-btn">Suivant</button>
+    </div>
 	</form>
 
   <script>
@@ -129,23 +129,28 @@ if (!isset($_SESSION['email'])) {
     const checkbox8 = document.getElementById('anglais');
 
 
-    var checkedCount2 = 0;
+    var checkedCount = 0;
     var checkboxList = [checkbox1, checkbox2, checkbox3,checkbox4, checkbox5, checkbox6, checkbox7, checkbox8];
 
     butt.addEventListener("click", function(event){
       for (var k = 0; k < checkboxList.length; k++) {
           if (checkboxList[k].checked) {
-          checkedCount2 = checkedCount2 + 1;
+          checkedCount = checkedCount + 1;
         }
         }
         
-        if (checkedCount2 == 0) {
+        if (checkedCount == 0) {
         event.preventDefault();
-        alert("Vous devez choisir au moins une spécialité avant de continuer.");
+        popupWindow('wrong-prof.php','Pas assez de spécialités', window, 400, 300);
         }
-        checkedCount2 = 0;
+        checkedCount = 0;
     });
 
+    function popupWindow(url, windowName, win, w, h) {
+      const y = win.top.outerHeight / 2 + win.top.screenY - ( h / 2);
+      const x = win.top.outerWidth / 2 + win.top.screenX - ( w / 2);
+      return win.open(url, windowName, `toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=${w}, height=${h}, top=${y}, left=${x}`);
+    }
   </script>
 
 </body>

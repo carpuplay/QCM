@@ -12,30 +12,74 @@
 <head>
 	<title>Ajouter une nouvelle question</title>
 	<link rel="stylesheet" href="modifInterface.css">
+	<style>
+		/* Radio Buttons */
+		input[type="radio"] {
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		display: inline-block;
+		width: 16px;
+		height: 16px;
+		border: 3px solid #878686;
+		border-radius: 50%;
+		background-color: #fff;
+		position: relative;
+		top: 4px;
+		margin-right: 8px;
+		cursor: pointer;
+		}
+
+		input[type="radio"]:checked::before {
+		content: '';
+		display: inline-block;
+		width: 12px;
+		height: 12px;
+		background-color: #005aff;
+		border-radius: 50%;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		}
+
+		/* Checkboxes */
+		input[type="checkbox"] {
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		display: inline-block;
+		width: 16px;
+		height: 16px;
+		border: 3px solid #878686;
+		border-radius: 4px;
+		background-color: #fff;
+		position: relative;
+		top: 4px;
+		margin-right: 8px;
+		cursor: pointer;
+		}
+
+		input[type="checkbox"]:checked::before {
+		content:'';
+		display: inline-block;
+		width: 11px;
+		height: 11px;
+		background-color: #005aff;
+		border-radius: 2px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		}
+	</style>
 </head>
 <body>
 	<h2>Ajouter une nouvelle question</h2>
 
-	<form method="post" action="./profModif.php">
+	<form method="post" action="./profModif.php" onsubmit="handleFormSubmit(event)">
+
 		<input type="hidden" name="user" value="$_SESSION['email']">
-
-		<label for="question">Question:</label>
-		<textarea name="question"  required></textarea><br>
-
-		<label for="r1">Réponse 1:</label>
-		<input type="text" name="r1" required><br>
-
-		<label for="r2">Réponse 2:</label>
-		<input type="text" name="r2" required><br>
-
-		<label for="r3">Réponse 3:</label>
-		<input type="text" name="r3"><br>
-
-		<label for="r4">Réponse 4:</label>
-		<input type="text" name="r4"><br>
-
-		<label for="pos">Correct Answer Position:</label>
-		<input type="number" name="pos" min="1" max="4" required><br>
 
 		<label for="type">Question Type:</label>
 		<select name="type" id="typeQuestion" required>
@@ -44,6 +88,27 @@
 			<option value="multiple">Choix Multiple</option>
 			<option value="truefalse">Vrai / Faux</option>
 		</select><br>
+
+		<label for="question">Question:</label>
+		<textarea name="question"  required></textarea><br>
+
+		<label for="r1">Réponse 1:</label>
+		<input type="checkbox" name="r[]" value="r1">
+		<input type="text" name="r1" required><br>
+
+		<label for="r2">Réponse 2:</label>
+		<input type="checkbox" name="r[]" value="r2">
+		<input type="text" name="r2" required><br>
+
+		<label name="r3Text" for="r3">Réponse 3:</label>
+		<input type="checkbox" name="r[]" value="r3">
+		<input type="text" name="r3"><br>
+
+		<label name="r4Text" for="r4">Réponse 4:</label>
+		<input type="checkbox" name="r[]" value="r4">
+		<input type="text" name="r4"><br>
+
+
 
         <label for="niveaux">Niveaux:</label>
         <select name="niveaux" id="niveauxSelect" required>
@@ -71,26 +136,156 @@
 		<input type="text" name="image" placeholder="URL">
 		<input type="file" name="image">
 		<br>
-
+		<input type="hidden" name="user" value="<?php echo $userId; ?>">
 		<input type="submit" value="Ajouter la question">
 	</form>
+
+	<!-- ESTO NO FUNCIONA DEL TODO BIEN
 	<div id="popup" class="popup">
 		<div class="popup-content">
 			<p>This website is currently in beta version. Please be aware that some features may not be fully functional.</p>
 			<button id="popup-close" class="popup-close">OK</button>
 		</div>
 	</div>
+	-->
 	<script type="text/javascript">
-		window.onload = function() {
-		var popup = document.getElementById("popup");
-		var closeButton = document.getElementById("popup-close");
+		// Verifica que almenos un checkbox se haya elegido
+		function handleFormSubmit(event) {
+			const selectedType = questionTypeSelect.value;
 
-  		closeButton.onclick = function() {
-    		popup.style.display = "none";
+			if (selectedType === 'multiple') {
+				const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+				let isChecked = false;
+
+				checkboxes.forEach((checkbox) => {
+					if (checkbox.checked) {
+						isChecked = true;
+					}
+				});
+
+				if (!isChecked) {
+					event.preventDefault();
+					alert("Choisissez la/les bonne/s réponse/s s'il vous plait.");
+				}
+			} else if (selectedType === 'truefalse') {
+				const r1Input = document.getElementById('r1');
+				const r2Input = document.getElementById('r2');
+
+				if (!(r1Input.checked || r2Input.checked)) {
+					event.preventDefault();
+					alert('Choisissez Vrai ou Faux.');
+				}
+			} else if (selectedType === 'unique'){
+				const r1Input = document.getElementById('r1');
+				const r2Input = document.getElementById('r2');
+				const r3Input = document.getElementById('r3');
+				const r4Input = document.getElementById('r4');
+
+				if (!(r1Input.checked || r2Input.checked || r3Input.checked || r4Input.checked)) {
+					event.preventDefault();
+					alert("Choisissez une bonne réponse s'il vous plait.");
+				}
+			}
+		}
+
+
+		// Attach the event listener to the form submit event
+		const form = document.querySelector('form');
+		form.addEventListener('submit', handleFormSubmit);
+
+		// Esto gestiona la aparicion/desaparicion de checkboxes
+		const questionTypeSelect = document.getElementById('typeQuestion');
+		const r1Checkbox = document.querySelector('input[name="r[]"][value="r1"]');
+		const r2Checkbox = document.querySelector('input[name="r[]"][value="r2"]');
+		const r3Checkbox = document.querySelector('input[name="r[]"][value="r3"]');
+		const r4Checkbox = document.querySelector('input[name="r[]"][value="r4"]');
+		const r1Input = document.querySelector('input[name="r1"]');
+		const r2Input = document.querySelector('input[name="r2"]');
+		const r3Input = document.querySelector('input[name="r3"]');
+		const r4Input = document.querySelector('input[name="r4"]');
+
+		// Function to handle question type change
+		function handleQuestionTypeChange() {
+		const selectedType = questionTypeSelect.value;
+		if (selectedType === 'unique') {
+			r1Checkbox.type = 'radio';
+			r2Checkbox.type = 'radio';
+			r3Checkbox.type = 'radio';
+			r4Checkbox.type = 'radio';
+			r1Checkbox.checked = false;
+			r2Checkbox.checked = false;
+			r3Checkbox.checked = false;
+			r4Checkbox.checked = false;
+			r1Input.style.display = 'block';
+			r2Input.style.display = 'block';
+			r3Input.style.display = 'block';
+			r4Input.style.display = 'block';
+			document.querySelector('label[for="r1"]').style.display = 'inline-block';
+    		document.querySelector('label[for="r2"]').style.display = 'inline-block';
+			document.querySelector('label[for="r3"]').style.display = 'inline-block';
+    		document.querySelector('label[for="r4"]').style.display = 'inline-block';
+			document.querySelector('label[for="r1"]').textContent = 'Réponse 1';
+    		document.querySelector('label[for="r2"]').textContent = 'Réponse 2';
+			document.querySelector('label[for="r3"]').textContent = 'Réponse 3';
+    		document.querySelector('label[for="r4"]').textContent = 'Réponse 4';
+		} else if (selectedType === 'multiple') {
+			r1Checkbox.type = 'checkbox';
+			r2Checkbox.type = 'checkbox';
+			r3Checkbox.type = 'checkbox';
+			r4Checkbox.type = 'checkbox';
+			r1Input.style.display = 'block';
+			r2Input.style.display = 'block';
+			r3Input.style.display = 'block';
+			r4Input.style.display = 'block';
+			document.querySelector('label[for="r1"]').style.display = 'inline-block';
+    		document.querySelector('label[for="r2"]').style.display = 'inline-block';
+			document.querySelector('label[for="r3"]').style.display = 'inline-block';
+    		document.querySelector('label[for="r4"]').style.display = 'inline-block';
+			document.querySelector('label[for="r1"]').textContent = 'Réponse 1';
+    		document.querySelector('label[for="r2"]').textContent = 'Réponse 2';
+			document.querySelector('label[for="r3"]').textContent = 'Réponse 3';
+    		document.querySelector('label[for="r4"]').textContent = 'Réponse 4';
+		} else if (selectedType === 'truefalse') {
+			r1Checkbox.type = 'radio';
+			r2Checkbox.type = 'radio';
+			r3Checkbox.type = 'hidden';
+			r4Checkbox.type = 'hidden';
+			r1Checkbox.checked = false;
+			r2Checkbox.checked = false;
+			r3Checkbox.checked = false;
+			r4Checkbox.checked = false;
+			r1Input.value = 'true';
+			r2Input.value = 'false';
+			r1Input.style.display = 'none';
+			r2Input.style.display = 'none';
+			r3Input.style.display = 'none';
+			r4Input.style.display = 'none';
+			document.querySelector('label[for="r3"]').style.display = 'none';
+    		document.querySelector('label[for="r4"]').style.display = 'none';
+			document.querySelector('label[for="r1"]').textContent = 'Vrai';
+    		document.querySelector('label[for="r2"]').textContent = 'Faux';
+		} else {
+			// Reset to default
+			r1Checkbox.type = 'checkbox';
+			r2Checkbox.type = 'checkbox';
+			r3Checkbox.type = 'checkbox';
+			r4Checkbox.type = 'checkbox';
+			r1Input.style.display = 'inline-block';
+			r2Input.style.display = 'inline-block';
+			r3Input.style.display = 'inline-block';
+			r4Input.style.display = 'inline-block';
+			document.querySelector('label[for="r1"]').style.display = 'inline-block';
+    		document.querySelector('label[for="r2"]').style.display = 'inline-block';
+			document.querySelector('label[for="r3"]').style.display = 'inline-block';
+    		document.querySelector('label[for="r4"]').style.display = 'inline-block';
 		}
 		}
 
-		
+		// Attach the event listener
+		questionTypeSelect.addEventListener('change', handleQuestionTypeChange);
+
+// Call the function initially to reflect the default question type
+handleQuestionTypeChange();
 		function updateChapitreOptions() {
 			var niveaux = document.getElementById("niveauxSelect").value;
 			var chapitre = document.getElementById("chapitreSelect");
