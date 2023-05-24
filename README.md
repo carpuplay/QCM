@@ -1,8 +1,7 @@
-# ACTUALIZAD LA BASE DE DATOS !!!
-El ultimo release incluye la base de datos test.sql actualizada.
-- descargar --> importar a sql !!!
+# ACTUALIZAD LA BASE DE DATOS 24/05!!!
 
-ULTIMA VERSIÓN v0.2.8-1
+
+ULTIMA VERSIÓN v0.2.8-2
 
                                                                                         
                                                                                         
