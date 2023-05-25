@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 24-05-2023 a las 22:58:00
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
+-- Host: 127.0.0.1
+-- Generation Time: May 25, 2023 at 01:20 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `test`
+-- Database: `test`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `chapitres`
+-- Table structure for table `chapitres`
 --
 
 CREATE TABLE `chapitres` (
@@ -38,7 +38,7 @@ CREATE TABLE `chapitres` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Volcado de datos para la tabla `chapitres`
+-- Dumping data for table `chapitres`
 --
 
 INSERT INTO `chapitres` (`id`, `spe`, `niveaux`, `chapitre`, `année`, `numero de chapitre`, `user`) VALUES
@@ -90,12 +90,34 @@ INSERT INTO `chapitres` (`id`, `spe`, `niveaux`, `chapitre`, `année`, `numero d
 (72, 'geopo', 'terminale', 'Histoire et mémoires', '2023', 3, 'alex'),
 (73, 'geopo', 'terminale', 'Les enjeux géopolitiques liés à la conservation et à la valorisa', '2023', 4, 'alex'),
 (74, 'geopo', 'terminale', 'L’environnement, un enjeu planétaire', '2023', 5, 'alex'),
-(75, 'geopo', 'terminale', 'L’enjeu de la connaissance', '2023', 6, 'alex');
+(75, 'geopo', 'terminale', 'L’enjeu de la connaissance', '2023', 6, 'alex'),
+(78, 'nsi', 'premiere', 'Au cœur de l\'ordinateur', '2023', 1, 'alex'),
+(79, 'nsi', 'premiere', 'L\'ordinateur de bureau', '2023', 2, 'alex'),
+(80, 'nsi', 'premiere', 'Réseaux', '2023', 3, 'alex'),
+(81, 'nsi', 'premiere', 'Interagir sur le web', '2023', 4, 'alex'),
+(82, 'nsi', 'premiere', 'Génie logiciel', '2023', 5, 'alex'),
+(83, 'nsi', 'premiere', 'Algorithmique et programmation', '2023', 6, 'alex');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `questions`
+-- Table structure for table `qcm`
+--
+
+CREATE TABLE `qcm` (
+  `id` int(11) NOT NULL,
+  `titre` varchar(64) NOT NULL,
+  `author` varchar(64) NOT NULL DEFAULT 'alex',
+  `date` datetime NOT NULL,
+  `description` text NOT NULL,
+  `image` text DEFAULT NULL,
+  `question id` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `questions`
 --
 
 CREATE TABLE `questions` (
@@ -116,7 +138,7 @@ CREATE TABLE `questions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Volcado de datos para la tabla `questions`
+-- Dumping data for table `questions`
 --
 
 INSERT INTO `questions` (`id`, `question`, `r1`, `r2`, `r3`, `r4`, `pos`, `type`, `chapitre`, `spe`, `niveaux`, `image`, `date`, `user`) VALUES
@@ -128,7 +150,7 @@ INSERT INTO `questions` (`id`, `question`, `r1`, `r2`, `r3`, `r4`, `pos`, `type`
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -151,63 +173,76 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Volcado de datos para la tabla `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `created_at`, `verification_code`, `prof`, `niveaux`, `spe_nsi`, `spe_geopo`, `spe_ses`, `spe_math`, `spe_physique`, `spe_anglais`, `spe_hlp`, `spe_svt`) VALUES
-(2, 'alex2', 'acarp@educand.ad', '$2y$10$UyEtNGlmWsZZnegMfUDaA.HJ3xfJc3cIFTWFGser.Rjl2pA4r6an2', '2023-04-14 20:38:08', '', 0, '', 0, 0, 0, 0, 0, 0, 0, 0),
+(2, 'alex2', 'acarp@educand.ad', '$2y$10$UyEtNGlmWsZZnegMfUDaA.HJ3xfJc3cIFTWFGser.Rjl2pA4r6an2', '2023-04-14 20:38:08', '', 1, '', 0, 0, 0, 0, 0, 0, 0, 0),
 (4, 'lex', 'exonstudiosnextgen@gmail.com', '$2y$10$57lb/AbkCk6Ha8CsxE2q9OkWs87D65MlDaKy1czQp527s8UnImjyu', '2023-04-14 21:08:57', '', 0, '', 0, 0, 0, 0, 0, 0, 0, 0),
 (5, 'alextest', 'acarpmihai2005@gmail.com', '$2y$10$NS92lApDGPpI26BtDrkgEOqNV7EMBa..cIunAgMTd1xuTR6G89gna', '2023-04-14 22:41:04', 'T8jLsr8u0GMgSzXS2CPV', 0, '', 0, 0, 0, 0, 0, 0, 0, 0),
 (33, 'marte', 'mgassetr@educand.ad', '$2y$10$BgZy5g1Z9qg8CqCLYJnTbOmTV1bsEELfElXrJ3Vn68UpVhp/jyxw6', '2023-04-27 11:13:55', '', 0, 'Terminale', 0, 0, 0, 0, 0, 0, 0, 0),
 (34, 'Jan', 'janpujolandorra@gmail.com', '$2y$10$gjNiSusuoLj30Bg1eKzmDu0z8xb7Ja/kLIQMr6p2XFMDeetpLRfj.', '2023-04-27 11:34:24', '', 0, 'Terminale', 0, 0, 0, 0, 0, 0, 0, 0),
 (35, 'miguel', 'miguel@gmail.com', '$2y$10$jGDTT9W8/Xe0kTXVxJRnputTWyLVit5O5vegJ8gwyEnth2teuV6VG', '2023-05-02 23:53:10', '', 0, 'Terminale', 0, 1, 1, 1, 0, 0, 0, 0),
 (36, 'alexcasa', 'casaalex@email.com', '$2y$10$vyp502Bal/1/tdWe5QJ9eOftYZxA2Z4rchxwIZPSqxX3S9wd2oUwC', '2023-05-03 00:11:34', '', 0, 'Terminale', 0, 0, 1, 1, 0, 0, 0, 0),
-(37, 'manolo', 'prof12@email.com', '$2y$10$KpxjXvaZl1r0Wgg1SW91xuTU3VgqyGIViVpjGCLC3D8uvHNn1hN4i', '2023-05-05 00:27:49', '', 0, 'Terminale', 0, 1, 1, 1, 0, 0, 1, 0);
+(37, 'manolo', 'prof12@email.com', '$2y$10$KpxjXvaZl1r0Wgg1SW91xuTU3VgqyGIViVpjGCLC3D8uvHNn1hN4i', '2023-05-05 00:27:49', '', 0, 'Terminale', 0, 1, 1, 1, 0, 0, 1, 0),
+(38, 'sofiA', 'sofia@educand.ad', '$2y$10$d887wQn5PCu.obFlZBpgxuP2w48idjM3RSgzgsa2DgdOqzaW6ieze', '2023-05-25 12:36:48', '', 0, 'Terminale', 0, 1, 0, 0, 0, 0, 0, 0);
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `chapitres`
+-- Indexes for table `chapitres`
 --
 ALTER TABLE `chapitres`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `questions`
+-- Indexes for table `qcm`
+--
+ALTER TABLE `qcm`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `questions`
 --
 ALTER TABLE `questions`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `username` (`username`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `chapitres`
+-- AUTO_INCREMENT for table `chapitres`
 --
 ALTER TABLE `chapitres`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
 
 --
--- AUTO_INCREMENT de la tabla `questions`
+-- AUTO_INCREMENT for table `qcm`
+--
+ALTER TABLE `qcm`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `questions`
 --
 ALTER TABLE `questions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
--- AUTO_INCREMENT de la tabla `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
