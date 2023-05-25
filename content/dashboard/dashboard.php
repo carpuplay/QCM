@@ -28,11 +28,69 @@ if ($result && mysqli_num_rows($result) > 0) {
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
     <title>Quiz Dashboard</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#subject').change(function() {
+                var subject = $(this).val();
+
+                if (subject !== '') {
+                    $.ajax({
+                        url: 'get_chapters.php',
+                        type: 'post',
+                        data: {
+                            subject: subject
+                        },
+                        dataType: 'json',
+                        success: function(response) {
+                            $('#chapter').empty().append('<option value="">Select a chapter</option>');
+
+                            if (response.length > 0) {
+                                $.each(response, function(index, chapter) {
+                                    $('#chapter').append('<option value="' + chapter + '">' + chapter + '</option>');
+                                });
+                            }
+                        }
+                    });
+                } else {
+                    $('#chapter').empty().append('<option value="">Select a chapter</option>');
+                }
+            });
+
+            $('#level').change(function() {
+                var subject = $('#subject').val();
+                var level = $(this).val();
+
+                if (subject !== '' && level !== '') {
+                    $.ajax({
+                        url: 'get_chapters.php',
+                        type: 'post',
+                        data: {
+                            subject: subject,
+                            level: level
+                        },
+                        dataType: 'json',
+                        success: function(response) {
+                            $('#chapter').empty().append('<option value="">Select a chapter</option>');
+
+                            if (response.length > 0) {
+                                $.each(response, function(index, chapter) {
+                                    $('#chapter').append('<option value="' + chapter + '">' + chapter + '</option>');
+                                });
+                            }
+                        }
+                    });
+                } else {
+                    $('#chapter').empty().append('<option value="">Select a chapter</option>');
+                }
+            });
+        });
+
+    </script>
 </head>
 <body>
     <h1>Quiz Dashboard</h1>
@@ -41,25 +99,13 @@ if ($result && mysqli_num_rows($result) > 0) {
         <select name="subject" id="subject">
             <option value="">Select a subject</option>
             <?php
-            foreach ($subjects as $subject => $chapters) {
-                echo '<option value="' . $subject . '">' . $subject . '</option>';
-            }
-            ?>
-        </select>
+            $query = "SELECT DISTINCT spe FROM chapitres";
+            $result = mysqli_query($link, $query);
 
-        <label for="chapter">Chapter:</label>
-        <select name="chapter" id="chapter">
-            <option value="">Select a chapter</option>
-            <?php
-            // Get the selected subject from the submitted form data
-            $selectedSubject = $_POST['subject'] ?? '';
-
-            // Generate the options for the selected subject
-            if (!empty($selectedSubject) && isset($subjects[$selectedSubject])) {
-                $selectedChapters = $subjects[$selectedSubject];
-
-                foreach ($selectedChapters as $chapter) {
-                    echo '<option value="' . $chapter . '">' . $chapter . '</option>';
+            if ($result && mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $subject = $row['spe'];
+                    echo '<option value="' . $subject . '">' . $subject . '</option>';
                 }
             }
             ?>
@@ -70,9 +116,12 @@ if ($result && mysqli_num_rows($result) > 0) {
             <option value="">Select a level</option>
             <option value="premiere">Premiere</option>
             <option value="terminale">Terminale</option>
-            <!-- Add more options for levels if needed -->
         </select>
 
+        <label for="chapter">Chapter:</label>
+        <select name="chapter" id="chapter">
+            <option value="">Select a chapter</option>
+        </select>
         <input type="submit" value="Start Quiz">
     </form>
 </body>
