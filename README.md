@@ -1,7 +1,7 @@
-# ACTUALIZAD LA BASE DE DATOS 24/05!!!
+# ACTUALIZAD LA BASE DE DATOS 25/05!!!
 
 
-ULTIMA VERSIÓN v0.2.8-2
+ULTIMA VERSIÓN v0.2.8-3
 
                                                                                         
                                                                                         
