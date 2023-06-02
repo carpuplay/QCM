@@ -1,0 +1,14 @@
+body{
+    font-family: "Termina", sans-serif;
+    color: white;
+    font-size: 28px;
+}
+
+.container{
+    position: relative;
+    max-width: 400px;
+    max-height: max-content;
+    background-color: black;
+    text-align: center;
+    justify-content: center;
+}
