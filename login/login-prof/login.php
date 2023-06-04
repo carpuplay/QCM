@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" >
 <head>
-  <meta charset="UTF-8">
-  <title>QcmHub - Login</title>
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'>
-<link rel='stylesheet' href='https://unicons.iconscout.com/release/v2.1.9/css/unicons.css'><link rel="stylesheet" href="./login.css">  
+ 	<meta charset="UTF-8">
+  	<title>QcmHub - Login</title>
+  	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'>
+	<link rel='stylesheet' href='https://unicons.iconscout.com/release/v2.1.9/css/unicons.css'>
+	<link rel="stylesheet" href="./login.css">  
+	<link rel="icon" type="image/x-icon" href="../../logo.ico">
 </head>
 
 <?php
@@ -82,7 +84,7 @@ session_unset();
                                                 </div>
                                                 <input type="submit" class="btn mt-4" value="Se connecter">
                                             </form>
-                            				<p class="mb-0 mt-4 text-center"><a href="#0" class="link">Mot de passe oublié?</a></p>
+                            				<p class="mb-0 mt-4 text-center"><a href="../login-reset/reset.php" class="link">Mot de passe oublié?</a></p>
 				      					</div>
 			      					</div>
 			      				</div>
